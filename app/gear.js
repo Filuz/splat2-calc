@@ -174,7 +174,7 @@ angular.module('splatApp').gear = function($scope) {
         "es_ES": "Moluskia",
         "es_MX": "Moluskia",
         "fr_FR": "Abysma",
-        "fr_FR": "Abysma",
+        "fr_CA": "Abysma",
         "de_DE": "Alpomar",
         "nl_NL": "Inkline",
         "ru_RU": "Волногор",

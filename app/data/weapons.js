@@ -463,9 +463,9 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Burst Bomb",
           "special": "Splashdown",
           "level": 2,
-          "specialCost": 180,
+          "specialCost": 170,
           "inkSaver": "Middle",
-          "inkPerShot": 1.0,
+          "inkPerShot": 0.92,
           "speedLevel": "Middle",
           "baseSpeed": 0.72,
           "shootingSpeed": "B",
@@ -501,9 +501,9 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Splat Bomb",
           "special": "Inkjet",
           "level": 4,
-          "specialCost": 210,
+          "specialCost": 200,
           "inkSaver": "Middle",
-          "inkPerShot": 1.0,
+          "inkPerShot": 0.92,
           "speedLevel": "Middle",
           "baseSpeed": 0.72,
           "shootingSpeed": "B",
@@ -541,7 +541,7 @@ angular.module('splatApp').weapons = function($scope) {
           "level": 6,
           "specialCost": 180,
           "inkSaver": "Middle",
-          "inkPerShot": 1.0,
+          "inkPerShot": 0.92,
           "speedLevel": "Middle",
           "baseSpeed": 0.72,
           "shootingSpeed": "B",
@@ -577,9 +577,9 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Burst Bomb",
           "special": "Splashdown",
           "level": 2,
-          "specialCost": 180,
+          "specialCost": 170,
           "inkSaver": "Middle",
-          "inkPerShot": 1.0,
+          "inkPerShot": 0.92,
           "speedLevel": "Middle",
           "baseSpeed": 0.72,
           "shootingSpeed": "B",
@@ -843,7 +843,7 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Sprinkler",
           "special": "Ink Storm",
           "level": 19,
-          "specialCost": 180,
+          "specialCost": 170,
           "inkSaver": "Middle",
           "inkPerShot": 0.8,
           "speedLevel": "High",
@@ -959,7 +959,7 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Splat Bomb",
           "special": "Booyah Bomb",
           "level": 23,
-          "specialCost": 200,
+          "specialCost": 210,
           "inkSaver": "High",
           "inkPerShot": 2.0,
           "speedLevel": "Middle",
@@ -1152,9 +1152,9 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Curling Bomb",
           "special": "Baller",
           "level": 18,
-          "specialCost": 170,
+          "specialCost": 220,
           "inkSaver": "Middle",
-          "inkPerShot": 1.0,
+          "inkPerShot": 1.15,
           "speedLevel": "Middle",
           "baseSpeed": 0.8,
           "shootingSpeed": "B",
@@ -1191,9 +1191,9 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Burst Bomb",
           "special": "Inkjet",
           "level": 23,
-          "specialCost": 180,
+          "specialCost": 200,
           "inkSaver": "Middle",
-          "inkPerShot": 1.0,
+          "inkPerShot": 1.15,
           "speedLevel": "Middle",
           "baseSpeed": 0.8,
           "shootingSpeed": "B",
@@ -1232,7 +1232,7 @@ angular.module('splatApp').weapons = function($scope) {
           "level": 27,
           "specialCost": 180,
           "inkSaver": "Middle",
-          "inkPerShot": 1.0,
+          "inkPerShot": 1.15,
           "speedLevel": "Middle",
           "baseSpeed": 0.8,
           "shootingSpeed": "B",
@@ -1269,7 +1269,7 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Point Sensor",
           "special": "Tenta Missiles",
           "level": 29,
-          "specialCost": 180,
+          "specialCost": 170,
           "inkSaver": "High",
           "inkPerShot": 1.8,
           "speedLevel": "Middle",
@@ -1388,7 +1388,7 @@ angular.module('splatApp').weapons = function($scope) {
           "level": 16,
           "specialCost": 180,
           "inkSaver": "Middle",
-          "inkPerShot": 2.4,
+          "inkPerShot": 2.2,
           "speedLevel": "Middle",
           "baseSpeed": 0.72,
           "shootingSpeed": "B",
@@ -1434,9 +1434,9 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Splat Bomb",
           "special": "Bubble Blower",
           "level": 25,
-          "specialCost": 180,
+          "specialCost": 190,
           "inkSaver": "Middle",
-          "inkPerShot": 2.4,
+          "inkPerShot": 2.2,
           "speedLevel": "Middle",
           "baseSpeed": 0.72,
           "shootingSpeed": "B",
@@ -1504,13 +1504,13 @@ angular.module('splatApp').weapons = function($scope) {
           "level": 19,
           "specialCost": 180,
           "inkSaver": "High",
-          "inkPerShot": 9.0,
+          "inkPerShot": 7.5,
           "speedLevel": "High",
           "baseSpeed": 0.5,
           "shootingSpeed": "B",
           "minDamage": {
             "direct": 125,
-            "explosion": 50.0, 
+            "explosion": 50.0,
           },
           "maxDamage": {
             "direct": 125,
@@ -1548,13 +1548,13 @@ angular.module('splatApp').weapons = function($scope) {
           "level": 24,
           "specialCost": 170,
           "inkSaver": "High",
-          "inkPerShot": 9.0,
+          "inkPerShot": 7.5,
           "speedLevel": "High",
           "baseSpeed": 0.5,
           "shootingSpeed": "B",
           "minDamage": {
             "direct": 125,
-            "explosion": 50.0, 
+            "explosion": 50.0,
           },
           "maxDamage": {
             "direct": 125,
@@ -1592,13 +1592,13 @@ angular.module('splatApp').weapons = function($scope) {
           "level": 26,
           "specialCost": 170,
           "inkSaver": "High",
-          "inkPerShot": 9.0,
+          "inkPerShot": 7.5,
           "speedLevel": "High",
           "baseSpeed": 0.5,
           "shootingSpeed": "B",
           "minDamage": {
             "direct": 125,
-            "explosion": 50.0, 
+            "explosion": 50.0,
           },
           "maxDamage": {
             "direct": 125,
@@ -1634,7 +1634,7 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Toxic Mist",
           "special": "Splashdown",
           "level": 5,
-          "specialCost": 180,
+          "specialCost": 170,
           "inkSaver": "Middle",
           "inkPerShot": 10.0,
           "speedLevel": "Middle",
@@ -1642,7 +1642,7 @@ angular.module('splatApp').weapons = function($scope) {
           "shootingSpeed": "B",
           "minDamage": {
             "direct": 125.0,
-            "explosion": 50.0 
+            "explosion": 50.0
           },
           "maxDamage": {
             "direct": 125.0,
@@ -1686,7 +1686,7 @@ angular.module('splatApp').weapons = function($scope) {
           "shootingSpeed": "B",
           "minDamage": {
             "direct": 125.0,
-            "explosion": 50.0 
+            "explosion": 50.0
           },
           "maxDamage": {
             "direct": 125.0,
@@ -1722,7 +1722,7 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Toxic Mist",
           "special": "Splashdown",
           "level": 5,
-          "specialCost": 180,
+          "specialCost": 170,
           "inkSaver": "Middle",
           "inkPerShot": 10.0,
           "speedLevel": "Middle",
@@ -1730,7 +1730,7 @@ angular.module('splatApp').weapons = function($scope) {
           "shootingSpeed": "B",
           "minDamage": {
             "direct": 125.0,
-            "explosion": 50.0 
+            "explosion": 50.0
           },
           "maxDamage": {
             "direct": 125.0,
@@ -1774,7 +1774,7 @@ angular.module('splatApp').weapons = function($scope) {
           "shootingSpeed": "B",
           "minDamage": {
             "direct": 125,
-            "explosion": 50.0, 
+            "explosion": 50.0,
           },
           "maxDamage": {
             "direct": 125,
@@ -1810,7 +1810,7 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Curling Bomb",
           "special": "Bubble Blower",
           "level": 18,
-          "specialCost": 180,
+          "specialCost": 170,
           "inkSaver": "Middle",
           "inkPerShot": 11.0,
           "speedLevel": "Middle",
@@ -1818,7 +1818,7 @@ angular.module('splatApp').weapons = function($scope) {
           "shootingSpeed": "B",
           "minDamage": {
             "direct": 125,
-            "explosion": 50.0, 
+            "explosion": 50.0,
           },
           "maxDamage": {
             "direct": 125,
@@ -1862,7 +1862,7 @@ angular.module('splatApp').weapons = function($scope) {
           "shootingSpeed": "B",
           "minDamage": {
             "direct": 125,
-            "explosion": 50.0, 
+            "explosion": 50.0,
           },
           "maxDamage": {
             "direct": 125,
@@ -2338,7 +2338,7 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Curling Bomb",
           "special": "Splashdown",
           "level": 3,
-          "specialCost": 180,
+          "specialCost": 170,
           "inkSaver": "Middle",
           "inkPerShotRolling": 0.1,
           "verticalInkPerShot": 9.0,
@@ -2363,7 +2363,7 @@ angular.module('splatApp').weapons = function($scope) {
             "rolling": 300,
             "standing": 300,
             "jumping": 300
-          },          
+          },
           "price": 1800,
           "stats": {
             "{{ SHELDON_RANGE | translate }}": 48,
@@ -2419,7 +2419,7 @@ angular.module('splatApp').weapons = function($scope) {
             "rolling": 300,
             "standing": 300,
             "jumping": 300
-          }, 
+          },
           "price": 9200,
           "stats": {
             "{{ SHELDON_RANGE | translate }}": 48,
@@ -2476,7 +2476,7 @@ angular.module('splatApp').weapons = function($scope) {
             "rolling": 300,
             "standing": 300,
             "jumping": 300
-          }, 
+          },
           "price": 12300,
           "stats": {
             "{{ SHELDON_RANGE | translate }}": 48,
@@ -2507,7 +2507,7 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Curling Bomb",
           "special": "Splashdown",
           "level": 3,
-          "specialCost": 180,
+          "specialCost": 170,
           "inkSaver": "Middle",
           "inkPerShotRolling": 0.1,
           "verticalInkPerShot": 9.0,
@@ -2532,7 +2532,7 @@ angular.module('splatApp').weapons = function($scope) {
             "rolling": 300,
             "standing": 300,
             "jumping": 300
-          }, 
+          },
           "price": 2300,
           "stats": {
             "{{ SHELDON_RANGE | translate }}": 48,
@@ -2911,7 +2911,7 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Ink Mine",
           "special": "Baller",
           "level": 7,
-          "specialCost": 160,
+          "specialCost": 180,
           "inkSaver": "Middle",
           "inkPerShot": 2.0,
           "inkPerShotRolling": 0.135,
@@ -3007,7 +3007,7 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Autobomb",
           "special": "Inkjet",
           "level": 10,
-          "specialCost": 180,
+          "specialCost": 170,
           "inkSaver": "Middle",
           "inkPerShot": 3.2,
           "inkPerShotRolling": 0.18,
@@ -3227,11 +3227,11 @@ angular.module('splatApp').weapons = function($scope) {
           "shootingSpeed": "B",
           "minDamage": {
             "full": 140,
-            "partial": 40.0, 
+            "partial": 40.0,
           },
           "maxDamage": {
             "full": 140,
-            "partial": 70.0
+            "partial": 80.0
           },
           "price": 8900,
           "stats": {
@@ -3271,11 +3271,11 @@ angular.module('splatApp').weapons = function($scope) {
           "shootingSpeed": "B",
           "minDamage": {
             "full": 140,
-            "partial": 40.0, 
+            "partial": 40.0,
           },
           "maxDamage": {
             "full": 140,
-            "partial": 70.0
+            "partial": 80.0
           },
           "price": 11000,
           "stats": {
@@ -3315,11 +3315,11 @@ angular.module('splatApp').weapons = function($scope) {
           "shootingSpeed": "B",
           "minDamage": {
             "full": 140,
-            "partial": 40.0, 
+            "partial": 40.0,
           },
           "maxDamage": {
             "full": 140,
-            "partial": 70.0
+            "partial": 80.0
           },
           "price": 14100,
           "stats": {
@@ -3551,7 +3551,7 @@ angular.module('splatApp').weapons = function($scope) {
           "baseSpeed": 0.2,
           "minDamage": {
             "full": 160,
-            "partial": 40.0, 
+            "partial": 40.0,
           },
           "maxDamage": {
             "full": 160,
@@ -3599,7 +3599,7 @@ angular.module('splatApp').weapons = function($scope) {
           "shootingSpeed": "B",
           "minDamage": {
             "full": 160,
-            "partial": 40.0, 
+            "partial": 40.0,
           },
           "maxDamage": {
             "full": 160,
@@ -3647,7 +3647,7 @@ angular.module('splatApp').weapons = function($scope) {
           "shootingSpeed": "B",
           "minDamage": {
             "full": 160,
-            "partial": 40.0, 
+            "partial": 40.0,
           },
           "maxDamage": {
             "full": 160,
@@ -3695,7 +3695,7 @@ angular.module('splatApp').weapons = function($scope) {
           "shootingSpeed": "B",
           "minDamage": {
             "full": 180.0,
-            "partial": 40.0, 
+            "partial": 40.0,
           },
           "maxDamage": {
             "full": 180.0,
@@ -3743,7 +3743,7 @@ angular.module('splatApp').weapons = function($scope) {
           "shootingSpeed": "B",
           "minDamage": {
             "full": 180.0,
-            "partial": 40.0, 
+            "partial": 40.0,
           },
           "maxDamage": {
             "full": 180.0,
@@ -3791,7 +3791,7 @@ angular.module('splatApp').weapons = function($scope) {
           "shootingSpeed": "B",
           "minDamage": {
             "full": 180.0,
-            "partial": 40.0, 
+            "partial": 40.0,
           },
           "maxDamage": {
             "full": 180.0,
@@ -3840,7 +3840,7 @@ angular.module('splatApp').weapons = function($scope) {
           "shootingSpeed": "B",
           "minDamage": {
             "full": 180.0,
-            "partial": 40.0, 
+            "partial": 40.0,
           },
           "maxDamage": {
             "full": 180.0,
@@ -3880,15 +3880,15 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Curling Bomb",
           "special": "Tenta Missiles",
           "level": 18,
-          "specialCost": 180,
+          "specialCost": 200,
           "inkSaver": "Middle",
-          "inkPerShot": 7.0,
+          "inkPerShot": 8.4,
           "speedLevel": "High",
           "baseSpeed": 0.6,
           "shootingSpeed": "B",
           "minDamage": {
             "full": 85.0,
-            "partial": 30.0, 
+            "partial": 30.0,
           },
           "maxDamage": {
             "full": 85.0,
@@ -3930,13 +3930,13 @@ angular.module('splatApp').weapons = function($scope) {
           "level": 21,
           "specialCost": 160,
           "inkSaver": "Middle",
-          "inkPerShot": 7.0,
+          "inkPerShot": 8.4,
           "speedLevel": "High",
           "baseSpeed": 0.6,
           "shootingSpeed": "B",
           "minDamage": {
             "full": 85.0,
-            "partial": 30.0, 
+            "partial": 30.0,
           },
           "maxDamage": {
             "full": 85.0,
@@ -3978,13 +3978,13 @@ angular.module('splatApp').weapons = function($scope) {
           "level": 27,
           "specialCost": 190,
           "inkSaver": "Middle",
-          "inkPerShot": 7.0,
+          "inkPerShot": 8.4,
           "speedLevel": "High",
           "baseSpeed": 0.6,
           "shootingSpeed": "B",
           "minDamage": {
             "full": 85.0,
-            "partial": 30.0, 
+            "partial": 30.0,
           },
           "maxDamage": {
             "full": 85.0,
@@ -4232,7 +4232,7 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Splat Bomb",
           "special": "Burst-Bomb Launcher",
           "level": 16,
-          "specialCost": 200,
+          "specialCost": 210,
           "inkSaver": "Middle",
           "inkPerShot": 7.0,
           "speedLevel": "Middle",
@@ -4339,7 +4339,7 @@ angular.module('splatApp').weapons = function($scope) {
             "first": 62.0,
             "second": 62.0,
             "third": 62.0
-          },  
+          },
           "price": 10200,
           "stats": {
             "{{ SHELDON_RANGE | translate }}": 31,
@@ -4385,7 +4385,7 @@ angular.module('splatApp').weapons = function($scope) {
             "first": 62.0,
             "second": 62.0,
             "third": 62.0
-          }, 
+          },
           "price": 11700,
           "stats": {
             "{{ SHELDON_RANGE | translate }}": 31,
@@ -4684,7 +4684,7 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Point Sensor",
           "special": "Baller",
           "level": 22,
-          "specialCost": 210,
+          "specialCost": 220,
           "inkSaver": "Middle",
           "inkPerShot": 11.7,
           "speedLevel": "Low",
@@ -5101,7 +5101,7 @@ angular.module('splatApp').weapons = function($scope) {
           "mpuMaxDamage": {
             "full": 49.9,
             "partial": 33.3
-          },          
+          },
           "shootingSpeed": "D",
           "price": 33300,
           "stats": {
@@ -5137,8 +5137,8 @@ angular.module('splatApp').weapons = function($scope) {
           "inkSaver": "Middle",
           "inkPerShot": 25.0,
           "speedLevel": "Middle",
-          "baseSpeed": 0.96,
-          "chargeSpeed": 0.96,
+          "baseSpeed": 0.86,
+          "chargeSpeed": 0.86,
           "shootingSpeed": "B",
           "minDamage": {
             "normal": 14.0,
@@ -5186,8 +5186,8 @@ angular.module('splatApp').weapons = function($scope) {
           "inkSaver": "Middle",
           "inkPerShot": 25.0,
           "speedLevel": "Middle",
-          "baseSpeed": 0.96,
-          "chargeSpeed": 0.96,
+          "baseSpeed": 0.86,
+          "chargeSpeed": 0.86,
           "shootingSpeed": "B",
           "minDamage": {
             "normal": 14.0,
@@ -5195,7 +5195,7 @@ angular.module('splatApp').weapons = function($scope) {
           },
           "maxDamage":  {
             "normal": 28.0,
-            "repeat": 30.0,           
+            "repeat": 30.0,
           },
           "mpuMaxDamage": {
             "normal": 33.3,
@@ -5335,7 +5335,7 @@ angular.module('splatApp').weapons = function($scope) {
           "level": 26,
           "specialCost": 170,
           "inkSaver": "Middle",
-          "inkPerShot": 0.6975,
+          "inkPerShot": 0.697,
           "speedLevel": "High",
           "baseSpeed": 0.8,
           "shootingSpeed": "B",
@@ -5374,7 +5374,7 @@ angular.module('splatApp').weapons = function($scope) {
           "level": 29,
           "specialCost": 170,
           "inkSaver": "Middle",
-          "inkPerShot": 0.6975,
+          "inkPerShot": 0.697,
           "speedLevel": "High",
           "baseSpeed": 0.8,
           "shootingSpeed": "B",
@@ -5413,7 +5413,7 @@ angular.module('splatApp').weapons = function($scope) {
           "level": 30,
           "specialCost": 170,
           "inkSaver": "Middle",
-          "inkPerShot": 0.6975,
+          "inkPerShot": 0.697,
           "speedLevel": "High",
           "baseSpeed": 0.8,
           "shootingSpeed": "B",
@@ -5450,7 +5450,7 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Burst Bomb",
           "special": "Tenta Missiles",
           "level": 4,
-          "specialCost": 190,
+          "specialCost": 180,
           "inkSaver": "Middle",
           "inkPerShot": 0.76,
           "speedLevel": "Middle",
@@ -5489,7 +5489,7 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Curling Bomb",
           "special": "Inkjet",
           "level": 11,
-          "specialCost": 210,
+          "specialCost": 200,
           "inkSaver": "Middle",
           "inkPerShot": 0.76,
           "speedLevel": "Middle",
@@ -5567,7 +5567,7 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Burst Bomb",
           "special": "Tenta Missiles",
           "level": 4,
-          "specialCost": 190,
+          "specialCost": 180,
           "inkSaver": "Middle",
           "inkPerShot": 0.76,
           "speedLevel": "Middle",
@@ -5608,13 +5608,13 @@ angular.module('splatApp').weapons = function($scope) {
           "level": 17,
           "specialCost": 180,
           "inkSaver": "Middle",
-          "inkPerShot": 1.6,
+          "inkPerShot": 1.4,
           "speedLevel": "Middle",
           "baseSpeed": 0.6,
           "shootingSpeed": "B",
           "minDamage": {
             "normal": 18.0,
-            "burst": 26.3  
+            "burst": 26.3
           },
           "maxDamage": {
             "normal": 36.0,
@@ -5656,13 +5656,13 @@ angular.module('splatApp').weapons = function($scope) {
           "level": 24,
           "specialCost": 180,
           "inkSaver": "Middle",
-          "inkPerShot": 1.6,
+          "inkPerShot": 1.4,
           "speedLevel": "Middle",
           "baseSpeed": 0.6,
           "shootingSpeed": "B",
           "minDamage": {
             "normal": 18.0,
-            "burst": 26.3  
+            "burst": 26.3
           },
           "maxDamage": {
             "normal": 36.0,
@@ -5704,13 +5704,13 @@ angular.module('splatApp').weapons = function($scope) {
           "level": 27,
           "specialCost": 180,
           "inkSaver": "Middle",
-          "inkPerShot": 1.6,
+          "inkPerShot": 1.4,
           "speedLevel": "Middle",
           "baseSpeed": 0.6,
           "shootingSpeed": "B",
           "minDamage": {
             "normal": 18.0,
-            "burst": 26.3  
+            "burst": 26.3
           },
           "maxDamage": {
             "normal": 36.0,
@@ -5971,7 +5971,7 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Autobomb",
           "special": "Splat-Bomb Launcher",
           "level": 15,
-          "specialCost": 180,
+          "specialCost": 200,
           "inkSaver": "Middle",
           "inkPerShot": 6.325,
           "speedLevel": "Middle",
@@ -6063,7 +6063,7 @@ angular.module('splatApp').weapons = function($scope) {
           "level": 23,
           "specialCost": 200,
           "inkSaver": "High",
-          "inkPerShot": 10.0,
+          "inkPerShot": 11.0,
           "speedLevel": "Low",
           "baseSpeed": 0.5,
 		      "chargeSpeed": 0.4,
@@ -6108,7 +6108,7 @@ angular.module('splatApp').weapons = function($scope) {
           "level": 28,
           "specialCost": 170,
           "inkSaver": "High",
-          "inkPerShot": 10.0,
+          "inkPerShot": 11.0,
           "speedLevel": "Low",
           "baseSpeed": 0.5,
 		      "chargeSpeed": 0.4,
@@ -6151,9 +6151,9 @@ angular.module('splatApp').weapons = function($scope) {
           "sub": "Ink Mine",
           "special": "Ultra Stamp",
           "level": 30,
-          "specialCost": 200,
+          "specialCost": 210,
           "inkSaver": "High",
-          "inkPerShot": 10.0,
+          "inkPerShot": 11.0,
           "speedLevel": "Low",
           "baseSpeed": 0.5,
 		      "chargeSpeed": 0.4,
@@ -6210,7 +6210,7 @@ angular.module('splatApp').weapons = function($scope) {
           "maxDamage": {
             "canopy": 15.0,
             "explosion": 48.0
-          },          
+          },
           "price": 9100,
           "stats": {
             "{{ SHELDON_RANGE | translate }}": 50,

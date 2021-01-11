@@ -20,7 +20,7 @@ angular.module('splatApp').subs = function ($scope) {
       cost: 55,
       inkSaver: "B",
       damage: {
-        "Near": 150,
+        "Near": 180,
         "Far": 30
       }
     },
@@ -69,7 +69,7 @@ angular.module('splatApp').subs = function ($scope) {
       cost: 70,
       inkSaver: "C",
       damage: {
-        "Near": 150,
+        "Near": 180,
         "Far": 30
       }
     },
@@ -87,7 +87,7 @@ angular.module('splatApp').subs = function ($scope) {
         "it_IT": "Bomba a gassosa",
         "nl_NL": "Bomblikje",
         "ru_RU": "Содовая бомба",
-        "zh_HK": ""  
+        "zh_HK": ""
       },
       image: "../common/assets/img/subspe/Wsb_Bomb_Piyo.png",
       cost: 60,
@@ -263,7 +263,7 @@ angular.module('splatApp').subs = function ($scope) {
         "it_IT": "Torpedinatore",
         "nl_NL": "Torpedobom",
         "ru_RU": "Торпедная бомба",
-        "zh_HK": ""  
+        "zh_HK": ""
       },
       image: "../common/assets/img/subspe/Wsb_Bomb_Tako.png",
       cost: 65,
