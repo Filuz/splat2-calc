@@ -185,7 +185,12 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
       <li>Trello Board: <a href="https://trello.com/b/CjN9IRzJ/loadoutink" target="_blank">https://trello.com/b/CjN9IRzJ/loadoutink</a>.
     </ul>
 
-    <h4>Version 2.3.0 (Current)</h4>
+    <h4>Version 2.3.1 (Current)</h4>
+    <ul>
+    <li>Updated several weapons for patch up to <a href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/27028/~/how-to-update-splatoon-2" target="_blank">v5.3.1</a>.</li>
+    </ul>
+
+    <h4>Version 2.3.0</h4>
     <ul>
     <li>Updated several weapons for the <a href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/27028/~/how-to-update-splatoon-2" target="_blank">v4.8 patch</a>.</li>
     <li>Added the ability to toggle stat modifications for Last-Ditch Effort and Drop Roller.</li>
@@ -252,7 +257,7 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     <li>Fixed bugs for the weapon and gear search/filter.</li>
     <li>Updated Special Cost calculation.</li>
     <li>Updated Run Speed parameters for Mini Splatling.</li>
-    </ul>    
+    </ul>
 
     <h4>Version 2.0.12</h4>
     <ul>
@@ -261,7 +266,7 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     <li>Added the ability to filter/search Weapons and Gear.</li>
     <li>Updated MPU parameters for several weapons.</li>
     <li>Fixed a bug preventing MPU stats from displaying for E-Liter weapons.</li>
-    </ul>    
+    </ul>
 
     <h4>Version 2.0.11</h4>
     <ul>
@@ -294,7 +299,7 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     <li>Updated parameters for Bubble Blower (Special Power Up).</li>
     <li>Added Ultra Stamp.</li>
     <li>Added several Main Power Up stats.</li>
-    </ul> 
+    </ul>
 
     <h4>Version 2.0.8</h4>
     <ul>
@@ -587,7 +592,7 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
       $scope.$parent.selectedSet=results.set; // ???
       $scope.$parent.loadout.weapon=results.weapon;
     }, function() {
- 
+
     });
   };
 
@@ -687,7 +692,7 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
       window.open(url,'_blank');
     }, function() {
 
-    });    
+    });
   };
 
   $rootScope.openExcessiveAPModal = function() {
@@ -718,7 +723,7 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
 
     }, function() {
 
-    });  
+    });
   }
   if (typeof(Storage) !== "undefined") {
     if(!localStorage.appVersion || localStorage.appVersion < $scope.appVersion) {
@@ -745,7 +750,7 @@ angular.module('splatApp').controller('WeaponPickerCtrl', function($scope, $root
   $scope.weaponSearchFilter = function(value) {
     var current_lang = $rootScope.splatController.getCurrentLang();
     var searchText = document.getElementById("weaponSearchFilterText").value;
-    
+
     if(value.localizedName[current_lang].toLowerCase().indexOf(searchText.toLowerCase()) != -1) {
       return true;
     }
@@ -834,18 +839,18 @@ angular.module('splatApp').controller('GearPickerCtrl', function($scope, $rootSc
   $scope.gearSearchFilter = function(value) {
     var current_lang = $rootScope.splatController.getCurrentLang();
     var searchText = document.getElementById("gearSearchFilterText").value;
-    
+
     // Filter on NAME
     if(value.localizedName[current_lang].toLowerCase().indexOf(searchText.toLowerCase()) != -1) {
       return true;
     }
-    
+
     // Filter on BRAND
     var brand = $rootScope.splatController.brands[value.brand];
     if(brand.localizedName[current_lang].toLowerCase().indexOf(searchText.toLowerCase()) != -1) {
       return true;
     }
-    
+
     // Filter on MAIN ABILITY
     var skills = $rootScope.splatController.skills;
     var skill = null;

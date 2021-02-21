@@ -1561,7 +1561,7 @@ $scope.hats = [
     "stars": 3,
     "id": 70,
     "splatnet": 4014
-  }, 
+  },
   {
     "image": "../common/assets/img/gear/hats/Hed_HDP000.png",
     "name": "Studio Headphones",
@@ -1737,7 +1737,7 @@ $scope.hats = [
     "stars": 1,
     "id": 78,
     "splatnet": 6000
-  }, 
+  },
   {
     "image": "../common/assets/img/gear/hats/Hed_VIS001.png",
     "name": "FishFry Visor",
@@ -3017,6 +3017,94 @@ $scope.hats = [
     "splatnet": 24011
   },
   {
+    "image": "../common/assets/img/gear/hats/Hed_HAP012.png",
+    "name": "Jetflame Crest",
+    "localizedName": {
+      "ja_JP": "バーニングブロイラー",
+      "en_US": "Jetflame Crest",
+      "en_GB": "Jetflame Crest",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Crête flamboyante",
+      "fr_CA": "Crête flamboyante",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
+    },
+    "main": "Run Speed Up",
+    "brand": "SquidForce",
+    "stars": 3,
+    "id": 137,
+    "splatnet": 24012
+  },
+  {
+    "image": "../common/assets/img/gear/hats/Hed_HAP013.png",
+    "name": "Fierce Fishskull",
+    "localizedName": {
+      "ja_JP": "ギガギョコツ",
+      "en_US": "Fierce Fishskull",
+      "en_GB": "Fierce Fishskull",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Fossile marin",
+      "fr_CA": "Fossile marin",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
+    },
+    "main": "Swim Speed Up",
+    "brand": "SquidForce",
+    "stars": 3,
+    "id": 138,
+    "splatnet": 24013
+  },
+  {
+    "image": "../common/assets/img/gear/hats/Hed_HAP014.png",
+    "name": "Hivemind Antenna",
+    "localizedName": {
+      "ja_JP": "コズミックアンテナ",
+      "en_US": "Hivemind Antenna",
+      "en_GB": "Hivemind Antenna",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Récepteur cosmique",
+      "fr_CA": "Récepteur cosmique",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
+    },
+    "main": "Comeback",
+    "brand": "SquidForce",
+    "stars": 3,
+    "id": 139,
+    "splatnet": 24014
+  },
+  {
+    "image": "../common/assets/img/gear/hats/Hed_HAP015.png",
+    "name": "Eye of Justice",
+    "localizedName": {
+      "ja_JP": "ジャスティスブレイン",
+      "en_US": "Eye of Justice",
+      "en_GB": "Eye of Justice",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Casque du juste",
+      "fr_CA": "Casque du juste",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
+    },
+    "main": "Special Charge Up",
+    "brand": "SquidForce",
+    "stars": 3,
+    "id": 140,
+    "splatnet": 24015
+  },
+  {
     "image": "../common/assets/img/gear/hats/Hed_AMB000.png",
     "name": "Squid Hairclip",
     "localizedName": {
@@ -3035,7 +3123,7 @@ $scope.hats = [
     "main": "Swim Speed Up",
     "brand": "amiibo",
     "stars": 2,
-    "id": 137,
+    "id": 141,
     "splatnet": 25000
   },
   {
@@ -3057,7 +3145,7 @@ $scope.hats = [
     "main": "Quick Super Jump",
     "brand": "amiibo",
     "stars": 2,
-    "id": 138,
+    "id": 142,
     "splatnet": 25001
   },
   {
@@ -3079,7 +3167,7 @@ $scope.hats = [
     "main": "Bomb Defense Up DX",
     "brand": "amiibo",
     "stars": 2,
-    "id": 139,
+    "id": 143,
     "splatnet": 25002
   },
   {
@@ -3101,7 +3189,7 @@ $scope.hats = [
     "main": "Opening Gambit",
     "brand": "amiibo",
     "stars": 2,
-    "id": 140,
+    "id": 144,
     "splatnet": 25003
   },
   {
@@ -3123,7 +3211,7 @@ $scope.hats = [
     "main": "Quick Respawn",
     "brand": "amiibo",
     "stars": 2,
-    "id": 141,
+    "id": 145,
     "splatnet": 25004
   },
   {
@@ -3145,7 +3233,7 @@ $scope.hats = [
     "main": "Ink Resistance Up",
     "brand": "amiibo",
     "stars": 2,
-    "id": 142,
+    "id": 146,
     "splatnet": 25005
   },
   {
@@ -3167,7 +3255,7 @@ $scope.hats = [
     "main": "Bomb Defense Up DX",
     "brand": "amiibo",
     "stars": 2,
-    "id": 143,
+    "id": 147,
     "splatnet": 25006
   },
   {
@@ -3189,7 +3277,7 @@ $scope.hats = [
     "main": "Special Saver",
     "brand": "amiibo",
     "stars": 2,
-    "id": 144,
+    "id": 148,
     "splatnet": 25007
   },
   {
@@ -3211,7 +3299,7 @@ $scope.hats = [
     "main": "Ink Saver (Main)",
     "brand": "amiibo",
     "stars": 2,
-    "id": 145,
+    "id": 149,
     "splatnet": 25008
   },
   {
@@ -3233,7 +3321,7 @@ $scope.hats = [
     "main": "Special Charge Up",
     "brand": "amiibo",
     "stars": 2,
-    "id": 146,
+    "id": 150,
     "splatnet": 25009
   },
   {
@@ -3255,7 +3343,7 @@ $scope.hats = [
     "main": "Comeback",
     "brand": "amiibo",
     "stars": 2,
-    "id": 147,
+    "id": 151,
     "splatnet": 25010
   },
   {
@@ -3277,7 +3365,7 @@ $scope.hats = [
     "main": "Run Speed Up",
     "brand": "Cuttlegear",
     "stars": 2,
-    "id": 148,
+    "id": 152,
     "splatnet": 27000
   },
   {
@@ -3299,7 +3387,7 @@ $scope.hats = [
     "main": "Tenacity",
     "brand": "Cuttlegear",
     "stars": 2,
-    "id": 149,
+    "id": 153,
     "splatnet": 27004
   },
   {
@@ -3321,7 +3409,7 @@ $scope.hats = [
     "main": "Special Saver",
     "brand": "Cuttlegear",
     "stars": 2,
-    "id": 150,
+    "id": 154,
     "splatnet": 27101
   },
   {
@@ -3343,7 +3431,7 @@ $scope.hats = [
     "main": "Last-Ditch Effort",
     "brand": "Cuttlegear",
     "stars": 2,
-    "id": 151,
+    "id": 155,
     "splatnet": 27104
   },
   {
@@ -3365,7 +3453,7 @@ $scope.hats = [
     "main": "Special Power Up",
     "brand": "Cuttlegear",
     "stars": 2,
-    "id": 152,
+    "id": 156,
     "splatnet": 27105
   },
   {
@@ -3387,7 +3475,7 @@ $scope.hats = [
     "main": "Comeback",
     "brand": "Cuttlegear",
     "stars": 2,
-    "id": 153,
+    "id": 157,
     "splatnet": 27106
   },
   {
@@ -3409,7 +3497,7 @@ $scope.hats = [
     "main": "Sub Power Up",
     "brand": "Cuttlegear",
     "stars": 2,
-    "id": 154,
+    "id": 158,
     "splatnet": 27107
   },
   {
@@ -3431,7 +3519,7 @@ $scope.hats = [
     "main": "Special Charge Up",
     "brand": "Cuttlegear",
     "stars": 3,
-    "id": 155,
+    "id": 159,
     "splatnet": 27108
   }
 ]

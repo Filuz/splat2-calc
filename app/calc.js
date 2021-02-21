@@ -14,7 +14,7 @@ angular
     $scope.loadout = new Loadout();
     $scope.status = {}
     $scope.logging = false;
-    $scope.appVersion = 230; // 2.X.X
+    $scope.appVersion = 231; // 2.X.X
     $scope.screenshotMode = false;
     $scope.toggledAbilities = {};
 
@@ -64,11 +64,11 @@ angular
         if(weaponNameKeys[i] == $scope.loadout.weapon.name) {
           var weaponName = weaponNameKeys[i];
           var statKeyKeys = Object.keys($scope.toggledAbilities[weaponName]);
-  
+
           for(var j = 0; j < statKeyKeys.length; j++) {
             var statKey = statKeyKeys[j];
             var statName = $scope.toggledAbilities[weaponName][statKey];
-  
+
             // TODO: The value stored should be a dictionary of the Stat Name and Ability Name
             var abilityName = null;
             if(statKey.indexOf("Main Power Up") != -1)  {
@@ -86,7 +86,7 @@ angular
             if(statKey == "Ink Consumption (Main)") {
               abilityName = "Ink Saver (Main)";
             }
-  
+
             var abilityScore = $scope.loadout.calcAbilityScore(abilityName);
             var statValues = $scope.calcStat(abilityScore, weaponName, statName);
             $scope.displayStat(statKey, statValues.name, statValues.value, statValues.percentage, statValues.label);
@@ -103,11 +103,11 @@ angular
         if(weaponTypeKeys[i] == $scope.loadout.weapon.type) {
           var weaponType = weaponTypeKeys[i];
           var statKeyKeys = Object.keys($scope.toggledAbilities[weaponType]);
-  
+
           for(var j = 0; j < statKeyKeys.length; j++) {
             var statKey = statKeyKeys[j];
             var statName = $scope.toggledAbilities[weaponType][statKey];
-  
+
             if(statName == name)  {
               return true;
             }
@@ -138,17 +138,17 @@ angular
     $scope.toggleConditionalAbilityCheckbox = function() {
       if($scope.loadout.hasAbility("Opening Gambit")) {
         // 1. Modify the Swim Speed stat.
-        var abilityScore = $scope.loadout.calcAbilityScore('Swim Speed Up');        
+        var abilityScore = $scope.loadout.calcAbilityScore('Swim Speed Up');
         var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_SWIM_SPEED");
         $scope.displayStat("Swim Speed", statValues.name, statValues.value, statValues.percentage, statValues.label);
-      
+
         // 2. Modify the Run Speed stat.
-        abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');        
+        abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');
         statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_RUN_SPEED");
         $scope.displayStat("Run Speed", statValues.name, statValues.value, statValues.percentage, statValues.label);
-      
+
         // 3. Modify the Ink Resistance (Run Speed) stat.
-        abilityScore = $scope.loadout.calcAbilityScore('Ink Resistance Up');        
+        abilityScore = $scope.loadout.calcAbilityScore('Ink Resistance Up');
         statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_RUN_SPEED_RESIST");
         $scope.displayStat("Run Speed (Enemy Ink)", statValues.name, statValues.value, statValues.percentage, statValues.label);
 
@@ -160,12 +160,12 @@ angular
 
       if($scope.loadout.hasAbility("Comeback")) {
         // 1. Modify the Swim Speed stat.
-        var abilityScore = $scope.loadout.calcAbilityScore('Swim Speed Up');        
+        var abilityScore = $scope.loadout.calcAbilityScore('Swim Speed Up');
         var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_SWIM_SPEED");
         $scope.displayStat("Swim Speed", statValues.name, statValues.value, statValues.percentage, statValues.label);
 
         // 2. Modify the Run Speed stat.
-        abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');        
+        abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');
         statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_RUN_SPEED");
         $scope.displayStat("Run Speed", statValues.name, statValues.value, statValues.percentage, statValues.label);
 
@@ -175,27 +175,27 @@ angular
         $scope.displayStat("Run Speed (Firing)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);
 
         // 1. Modify the Ink Consumption (Main) stat.
-        var abilityScore = $scope.loadout.calcAbilityScore('Ink Saver (Main)');        
+        var abilityScore = $scope.loadout.calcAbilityScore('Ink Saver (Main)');
         var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_SAVER_MAIN");
         $scope.displayStat("Ink Consumption (Main)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);
 
         // 2. Modify the Ink Consumption (Sub) stat.
-        var abilityScore = $scope.loadout.calcAbilityScore('Ink Saver (Sub)');        
+        var abilityScore = $scope.loadout.calcAbilityScore('Ink Saver (Sub)');
         var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_SAVER_SUB");
         $scope.displayStat("Ink Consumption (Sub)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);
 
         // 3. Modify the Ink Recovery Speed (Squid) stat.
-        var abilityScore = $scope.loadout.calcAbilityScore('Ink Recovery Up');        
+        var abilityScore = $scope.loadout.calcAbilityScore('Ink Recovery Up');
         var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_RECOVERY_SQUID");
         $scope.displayStat("Ink Recovery Speed (Squid)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);
 
         // 4. Modify the Ink Recovery Speed (Kid) stat.
-        var abilityScore = $scope.loadout.calcAbilityScore('Ink Recovery Up');        
+        var abilityScore = $scope.loadout.calcAbilityScore('Ink Recovery Up');
         var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_RECOVERY_KID");
         $scope.displayStat("Ink Recovery Speed (Kid)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);
 
         // 8. Modify the Special Charge Speed stat.
-        var abilityScore = $scope.loadout.calcAbilityScore('Special Charge Up');        
+        var abilityScore = $scope.loadout.calcAbilityScore('Special Charge Up');
         var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_SPECIAL_CHARGE");
         $scope.displayStat("Special Charge Speed", statValues.name, statValues.value, statValues.percentage, statValues.label);
       }
@@ -210,26 +210,26 @@ angular
           $scope.ldeSlider.options.disabled = false;
         }
         else {
-          $scope.ldeSlider.options.disabled = true;          
+          $scope.ldeSlider.options.disabled = true;
         }
 
         // 1. Modify the Ink Consumption (Main) stat.
-        var abilityScore = $scope.loadout.calcAbilityScore('Ink Saver (Main)');        
+        var abilityScore = $scope.loadout.calcAbilityScore('Ink Saver (Main)');
         var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_SAVER_MAIN");
         $scope.displayStat("Ink Consumption (Main)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);
 
         // 2. Modify the Ink Consumption (Sub) stat.
-        var abilityScore = $scope.loadout.calcAbilityScore('Ink Saver (Sub)');        
+        var abilityScore = $scope.loadout.calcAbilityScore('Ink Saver (Sub)');
         var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_SAVER_SUB");
         $scope.displayStat("Ink Consumption (Sub)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);
 
         // 3. Modify the Ink Recovery Speed (Squid) stat.
-        var abilityScore = $scope.loadout.calcAbilityScore('Ink Recovery Up');        
+        var abilityScore = $scope.loadout.calcAbilityScore('Ink Recovery Up');
         var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_RECOVERY_SQUID");
         $scope.displayStat("Ink Recovery Speed (Squid)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);
 
         // 4. Modify the Ink Recovery Speed (Kid) stat.
-        var abilityScore = $scope.loadout.calcAbilityScore('Ink Recovery Up');        
+        var abilityScore = $scope.loadout.calcAbilityScore('Ink Recovery Up');
         var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_RECOVERY_KID");
         $scope.displayStat("Ink Recovery Speed (Kid)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);
       }
@@ -239,17 +239,17 @@ angular
 
       if($scope.loadout.hasAbility("Drop Roller")) {
         // 1. Modify the Swim Speed stat.
-        var abilityScore = $scope.loadout.calcAbilityScore('Swim Speed Up');        
+        var abilityScore = $scope.loadout.calcAbilityScore('Swim Speed Up');
         var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_SWIM_SPEED");
         $scope.displayStat("Swim Speed", statValues.name, statValues.value, statValues.percentage, statValues.label);
-      
+
         // 2. Modify the Run Speed stat.
-        abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');        
+        abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');
         statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_RUN_SPEED");
         $scope.displayStat("Run Speed", statValues.name, statValues.value, statValues.percentage, statValues.label);
-      
+
         // 3. Modify the Ink Resistance (Run Speed) stat.
-        abilityScore = $scope.loadout.calcAbilityScore('Ink Resistance Up');        
+        abilityScore = $scope.loadout.calcAbilityScore('Ink Resistance Up');
         statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_RUN_SPEED_RESIST");
         $scope.displayStat("Run Speed (Enemy Ink)", statValues.name, statValues.value, statValues.percentage, statValues.label);
 
@@ -400,7 +400,7 @@ angular
             $scope.activeConditionalAbilities[i].selected = value;
           }
         }
-      }      
+      }
     }
 
     $scope.toFixedTrimmed = function(number, precision) {
@@ -482,9 +482,9 @@ angular
         if($scope.loadout.weapon.speedLevel == "High") {
           swim_speed_parameters = $scope.parameters["Swim Speed"]["Light"];
         }
-  
+
         var abilityScore = $scope.loadout.calcAbilityScore('Swim Speed Up');
-  
+
         if($scope.loadout.hasAbility('Opening Gambit') && $scope.conditionalAbilitySelected("Opening Gambit")) {
           abilityScore += 30;
         }
@@ -498,22 +498,22 @@ angular
         if(abilityScore > 57) {
           abilityScore = 57;
         }
-   
+
         var p = $scope.calcP(abilityScore);
-  
+
         if($scope.loadout.hasAbility('Ninja Squid')) {
           p = p * 0.8;
         }
-  
+
         var s = $scope.calcS(swim_speed_parameters);
         var swim_speed = $scope.calcRes(swim_speed_parameters, p, s);
-  
+
         if($scope.loadout.hasAbility('Ninja Squid')) {
           swim_speed = swim_speed * 0.9;
         }
-  
+
         var delta = ((swim_speed / swim_speed_parameters[2] - 1) * 100).toFixed(1).toString();
-  
+
         var name = "{{ STAT_SWIM_SPEED | translate }}";
         var value = swim_speed;
         var percentage = delta;
@@ -521,7 +521,7 @@ angular
 
         if($scope.logging) {
           var swim_speed_debug_log = {"Swim Speed":swim_speed,"AP":abilityScore,"P":p,"S":s,"Delta":delta}
-          console.log(swim_speed_debug_log);        
+          console.log(swim_speed_debug_log);
         }
 
         return $scope.statValuesToDict(name, value, percentage, label);
@@ -555,12 +555,12 @@ angular
           abilityScore = 57;
         }
 
-        var p = $scope.calcP(abilityScore);       
+        var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(run_speed_parameters);
 
         var name = "{{ STAT_RUN_SPEED | translate }}";
         var value = $scope.calcRes(run_speed_parameters, p, s);
-        var percentage = ((value / run_speed_parameters[2] - 1) * 100).toFixed(1).toString();        
+        var percentage = ((value / run_speed_parameters[2] - 1) * 100).toFixed(1).toString();
         var label = "{{ LABEL_DISTANCE_PER_FRAME | translate }}".format({value: $scope.toFixedTrimmed(value,4)})
 
         if($scope.logging) {
@@ -586,12 +586,12 @@ angular
           abilityScore = 57;
         }
 
-        var p = $scope.calcP(abilityScore);       
+        var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(ink_resistance_parameters);
-        
+
         var name = "{{ STAT_RUN_SPEED_RESIST | translate }}";
         var value = $scope.calcRes(ink_resistance_parameters, p, s);
-        var percentage = ((value / ink_resistance_parameters[2] - 1) * 100).toFixed(1).toString();        
+        var percentage = ((value / ink_resistance_parameters[2] - 1) * 100).toFixed(1).toString();
         var label = "{{ LABEL_DISTANCE_PER_FRAME | translate }}".format({value: $scope.toFixedTrimmed(value,4)});
 
         if($scope.logging) {
@@ -614,29 +614,29 @@ angular
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Run Speed (Firing)");
           }
 
-          return $scope.statValuesToDict(name, value, percentage, label, desc);        
+          return $scope.statValuesToDict(name, value, percentage, label, desc);
         }
 
         if($scope.loadout.weapon.class.toLowerCase() == 'brush') {
-            var parameters = null;            
+            var parameters = null;
             if($scope.loadout.weapon.type == 'Inkbrush') {
               parameters = $scope.parameters["Main Power Up"]["Inkbrush"]["DashSpeed"]["params"];
             }
             if($scope.loadout.weapon.type == 'Octobrush') {
               parameters = $scope.parameters["Main Power Up"]["Octobrush"]["DashSpeed"]["params"];
             }
-            
+
             var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
             var p = $scope.calcP(abilityScore);
             var s = $scope.calcS(parameters);
             var result = $scope.calcRes(parameters, p, s);
-      
+
             var max_param = parameters[0];
             var min_param = parameters[2];
-    
+
             var name = "[+] {{ STAT_RUN_SPEED_DASHING | translate }}";
             var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
-            var percentage = ((result/min_param - 1) * 100).toFixed(1);            
+            var percentage = ((result/min_param - 1) * 100).toFixed(1);
             var label = "{{ LABEL_DISTANCE_PER_FRAME | translate }}".format({value: $scope.toFixedTrimmed(result,4)});
             var desc = "{{ BRUSH_SPEED | translate }}";
 
@@ -670,10 +670,10 @@ angular
           abilityScore = 57;
         }
 
-        var p = $scope.calcP(abilityScore);       
+        var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(run_speed_parameters);
         var run_speed = $scope.calcRes(run_speed_parameters, p, s) * $scope.loadout.weapon.baseSpeed;
-        var delta = ((run_speed / $scope.loadout.weapon.baseSpeed - 1) * 100).toFixed(1).toString();        
+        var delta = ((run_speed / $scope.loadout.weapon.baseSpeed - 1) * 100).toFixed(1).toString();
 
         if($scope.logging) {
           var run_speed_debug_log = {"Run Speed (Firing)":run_speed,"AP":abilityScore,"P":p,"S":s,"Delta":delta}
@@ -716,11 +716,11 @@ angular
           abilityScore = 57;
         }
 
-        var p = $scope.calcP(abilityScore);       
+        var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(run_speed_parameters);
         var run_speed = $scope.calcRes(run_speed_parameters, p, s) * $scope.loadout.weapon.chargeSpeed;
         var delta = ((run_speed / $scope.loadout.weapon.chargeSpeed - 1) * 100).toFixed(1).toString();
-        
+
         var name = "[+] {{ STAT_RUN_SPEED_CHARGING | translate }}";
         var value = run_speed;
         var percentage = delta;
@@ -729,7 +729,7 @@ angular
         if(saveStat) {
           $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Run Speed (Firing)");
         }
-        
+
         return $scope.statValuesToDict(name, value, percentage, label, desc);
       }
 
@@ -751,22 +751,22 @@ angular
           abilityScore = 57;
         }
 
-        var p = $scope.calcP(abilityScore);       
+        var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(run_speed_parameters);
         var result = $scope.calcRes(run_speed_parameters, p, s);
         var run_speed = result * $scope.loadout.weapon.horizontalSwingMoveSpeed;
-        var delta = ((run_speed / $scope.loadout.weapon.horizontalSwingMoveSpeed - 1) * 100).toFixed(1).toString();        
+        var delta = ((run_speed / $scope.loadout.weapon.horizontalSwingMoveSpeed - 1) * 100).toFixed(1).toString();
 
         var name = "[+] {{ STAT_RUN_SPEED_FLICKING_HORIZONTAL | translate }}";
         var value = run_speed;
         var percentage = delta;
         var label = "{{ LABEL_DISTANCE_PER_FRAME | translate }}".format({value: $scope.toFixedTrimmed(run_speed,4)});
-        var desc = "{{ UNIT_DISTANCE_UNITS_PER_FRAME | translate }}";        
+        var desc = "{{ UNIT_DISTANCE_UNITS_PER_FRAME | translate }}";
 
         if(saveStat) {
           $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Run Speed (Firing)");
         }
-        
+
         return $scope.statValuesToDict(name, value, percentage, label, desc);
       }
 
@@ -788,11 +788,11 @@ angular
           abilityScore = 57;
         }
 
-        var p = $scope.calcP(abilityScore);       
+        var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(run_speed_parameters);
         var result = $scope.calcRes(run_speed_parameters, p, s);
         var run_speed = result * $scope.loadout.weapon.verticalSwingMoveSpeed;
-        var delta = ((run_speed / $scope.loadout.weapon.verticalSwingMoveSpeed - 1) * 100).toFixed(1).toString();        
+        var delta = ((run_speed / $scope.loadout.weapon.verticalSwingMoveSpeed - 1) * 100).toFixed(1).toString();
 
         var name = "[+] {{ STAT_RUN_SPEED_FLICKING_VERTICAL | translate }}";
         var value = run_speed;
@@ -803,7 +803,7 @@ angular
         if(saveStat) {
           $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Run Speed (Firing)");
         }
-        
+
         return $scope.statValuesToDict(name, value, percentage, label, desc);
       }
 
@@ -828,7 +828,7 @@ angular
         var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(run_speed_parameters);
         var run_speed = $scope.calcRes(run_speed_parameters, p, s) * $scope.loadout.weapon.horizontalSwingMoveSpeed;
-        var delta = ((run_speed / $scope.loadout.weapon.horizontalSwingMoveSpeed - 1) * 100).toFixed(1).toString();        
+        var delta = ((run_speed / $scope.loadout.weapon.horizontalSwingMoveSpeed - 1) * 100).toFixed(1).toString();
 
         var name = "[+] {{ STAT_RUN_SPEED_FLICKING | translate }}";
         var value = run_speed;
@@ -839,8 +839,8 @@ angular
         if(saveStat) {
           $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Run Speed (Firing)");
         }
-        
-        return $scope.statValuesToDict(name, value, percentage, label, desc);        
+
+        return $scope.statValuesToDict(name, value, percentage, label, desc);
       }
 
       if(stat == "STAT_SPECIAL_CHARGE") {
@@ -855,41 +855,41 @@ angular
           abilityScore = 57;
         }
 
-        var p = $scope.calcP(abilityScore);       
+        var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(special_charge_speed_parameters);
-        var special_charge_speed = $scope.calcRes(special_charge_speed_parameters, p, s);      
-  
+        var special_charge_speed = $scope.calcRes(special_charge_speed_parameters, p, s);
+
         var name = "{{ STAT_SPECIAL_CHARGE | translate }}";
         var value = special_charge_speed;
         var percentage = ((special_charge_speed*100) - 100).toFixed(1);
         var desc = "{{ DESC_SPECIAL_COST | translate }}".format({value: Math.ceil($scope.loadout.weapon.specialCost / special_charge_speed)});
         var label = "{{ LABEL_PERCENT | translate }}".format({value: (value*100).toFixed(1)});
-  
+
         if($scope.logging) {
           var special_charge_speed_debug_log = {"Special Charge Speed":special_charge_speed,"AP":abilityScore,"P":p,"S":s,"Delta":percentage}
           console.log(special_charge_speed_debug_log);
         }
-  
-        return $scope.statValuesToDict(name, value, percentage, label, desc);      
+
+        return $scope.statValuesToDict(name, value, percentage, label, desc);
       }
 
       if(stat == "STAT_SPECIAL_SAVER") {
         var parameters = $scope.parameters["Special Saver"]["default"];
         var ap = abilityScore * 1.0;
-        
+
         var desc = null;
         if($scope.loadout.hasAbility('Respawn Punisher')) {
           ap = ap * 0.7;
           desc = "{{ DESC_PUNISHER_DISCLAIMER | translate }}";
         }
-  
-        var p = $scope.calcP(ap);       
+
+        var p = $scope.calcP(ap);
         var s = $scope.calcS(parameters);
         var modifier = $scope.calcRes(parameters, p, s);
         var special_saved = 100.0 * modifier;
-  
+
         if($scope.loadout.hasAbility('Respawn Punisher')) {
-          special_saved = special_saved * 0.775;
+          special_saved = special_saved - 22.5;
         }
 
         // Only enable toggle if the Special is Splashdown
@@ -902,13 +902,13 @@ angular
         }
         var value = special_saved;
         var percentage = $scope.toFixedTrimmed((modifier - 0.5) * 100, 2);
-        var label = "{{ LABEL_PERCENT | translate }}".format({value: (special_saved).toFixed(1)});  
+        var label = "{{ LABEL_PERCENT | translate }}".format({value: (special_saved).toFixed(1)});
 
         if($scope.logging) {
           var special_saver_debug_log = {"Special Saver":special_saved,"AP":ap,"Delta":modifier}
           console.log(special_saver_debug_log);
         }
-  
+
         if(saveStat) {
           $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Special Saved");
         }
@@ -923,28 +923,28 @@ angular
           parameters = $scope.parameters["Special Saver"]["Splashdown"];
         }
         else {
-          parameters = $scope.parameters["Special Saver"]["default"];        
+          parameters = $scope.parameters["Special Saver"]["default"];
         }
-        
+
         var desc = null;
         if($scope.loadout.hasAbility('Respawn Punisher')) {
           ap = ap * 0.7;
           desc = "{{ DESC_PUNISHER_DISCLAIMER | translate }}";
         }
-  
-        var p = $scope.calcP(ap);       
+
+        var p = $scope.calcP(ap);
         var s = $scope.calcS(parameters);
         var modifier = $scope.calcRes(parameters, p, s);
-        
+
         var special_saved = 100.0 * modifier;
         if(special_saved > 100) {
           special_saved = 100.0;
         }
-  
+
         if($scope.loadout.hasAbility('Respawn Punisher')) {
-          special_saved = special_saved * 0.775;
+          special_saved = special_saved - 22.5;
         }
-  
+
         if($scope.logging) {
           var special_saver_debug_log = {"Special Saver (On Death)":special_saved,"AP":ap,"Delta":modifier}
           console.log(special_saver_debug_log);
@@ -954,23 +954,23 @@ angular
         var value = special_saved;
         var percentage = $scope.toFixedTrimmed((modifier - 0.5) * 100, 2);
         var label = "{{ LABEL_PERCENT | translate }}".format({value: (special_saved).toFixed(1)});
-  
+
         if(saveStat) {
           $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Special Saved");
         }
         return $scope.statValuesToDict(name, value, percentage, label);
       }
-      
+
       if(stat == "STAT_SUB_POWER_RANGE") {
         var equippedSub = $scope.getSubByName($scope.loadout.weapon.sub);
 
         switch(equippedSub.name) {
           case 'Point Sensor':
             var parameters = $scope.parameters["Sub Power Up"]["Point Sensor Distance Up"];
-            var p = $scope.calcP(abilityScore);      
+            var p = $scope.calcP(abilityScore);
             var s = $scope.calcS(parameters);
             var result = $scope.calcRes(parameters, p, s);
-            var max_param = parameters[0];          
+            var max_param = parameters[0];
             var min_param = parameters[2];
 
             var name = "[+] {{ STAT_SUB_POWER_RANGE | translate }}";
@@ -986,7 +986,7 @@ angular
             if(saveStat) {
               $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Sub Power");
             }
-            return $scope.statValuesToDict(name, value, percentage, label);        
+            return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
@@ -995,12 +995,12 @@ angular
 
         if(equippedSub.name == "Point Sensor") {
           var parameters = $scope.parameters["Sub Power Up"]["Point Sensor Mark Time Duration"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s) / 60;
           var max_param = parameters[0] / 60;
           var min_param = parameters[2] / 60;
-  
+
           var name = "[+] {{ STAT_SUB_POWER_TRACKING_TIME | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
@@ -1010,7 +1010,7 @@ angular
             var main_power_up_debug_log = {"Sub Power Up (Point Sensor Tracking Time)":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Sub Power");
           }
@@ -1019,12 +1019,12 @@ angular
 
         if(equippedSub.name == "Ink Mine") {
           var parameters = $scope.parameters["Sub Power Up"]["Ink Mine Mark Time Duration"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s) / 60;
           var max_param = parameters[0] / 60;
           var min_param = parameters[2] / 60;
-  
+
           var name = "[+] {{ STAT_SUB_POWER_TRACKING_TIME | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
@@ -1034,18 +1034,18 @@ angular
             var main_power_up_debug_log = {"Sub Power Up (Ink Mine Tracking Time)":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Sub Power");
           }
           return $scope.statValuesToDict(name, value, percentage, label);
-        }        
+        }
 
       }
 
       if(stat == "STAT_SUB_POWER_MINE") {
         var parameters = $scope.parameters["Sub Power Up"]["Ink Mine Mark Radius"];
-        var p = this.calcP(abilityScore);      
+        var p = this.calcP(abilityScore);
         var s = this.calcS(parameters);
         var result = this.calcRes(parameters, p, s);
         var max_param = parameters[0];
@@ -1078,7 +1078,7 @@ angular
         if($scope.loadout.weapon.inkSaver == "High") {
           ink_saver_parameters = $scope.parameters["Ink Saver Main"]["High"];
         }
-  
+
         var abilityScore = $scope.loadout.calcAbilityScore('Ink Saver (Main)');
 
         if($scope.loadout.hasAbility('Comeback') && $scope.conditionalAbilitySelected("Comeback")) {
@@ -1092,35 +1092,35 @@ angular
           abilityScore = 57;
         }
 
-        var p = $scope.calcP(abilityScore);       
+        var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(ink_saver_parameters);
         var reduction = $scope.calcRes(ink_saver_parameters, p, s);
-  
+
         if($scope.loadout.weapon.class == "Roller" || $scope.loadout.weapon.class == "Brush") {
           var costPerShot = $scope.loadout.weapon.inkPerShotRolling * reduction * 60;
           var name = "[+] {{ STAT_SAVER_MAIN_ROLLING | translate }}";
-          var desc = "{{ DESC_MAIN_COST | translate }}".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          var desc = "{{ DESC_MAIN_COST | translate }}".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});
           var label = "{{ INK_BREAKDOWN_INK_PER_SECOND | translate }}".format({value: $scope.toFixedTrimmed(costPerShot,3)});
         }
         else {
           var costPerShot = $scope.loadout.weapon.inkPerShot * reduction;
           var name = "{{ STAT_SAVER_MAIN | translate }}";
-          var desc = "{{ DESC_MAIN_COST | translate }}".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          var desc = "{{ DESC_MAIN_COST | translate }}".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});
           var label = "{{ LABEL_MAIN_COST | translate }}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: $scope.loadout.weapon.shotUnit});
         }
-  
+
         if($scope.loadout.weapon.name.indexOf("Splattershot Jr.") !== -1) {
-          var desc = "{{ DESC_MAIN_COST | translate }}".format({totalShots: Math.floor(110/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});                
+          var desc = "{{ DESC_MAIN_COST | translate }}".format({totalShots: Math.floor(110/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});
         }
-        
+
         var value = costPerShot;
         var percentage = (100 - (reduction*100)).toFixed(1);
-  
+
         if($scope.logging) {
           var ink_saver_debug_log = {"Ink Saver (Main)":costPerShot,"AP":abilityScore,"P":p,"S":s,"Delta":reduction};
           console.log(ink_saver_debug_log);
         }
-  
+
         if(isNaN(value)) {
           value = 0;
           label = "{{ UNAVAILABLE | translate}}";
@@ -1158,13 +1158,13 @@ angular
           abilityScore = 57;
         }
 
-        var p = $scope.calcP(abilityScore);       
+        var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(ink_saver_parameters);
         var reduction = $scope.calcRes(ink_saver_parameters, p, s);
         var costPerShot = $scope.loadout.weapon.inkPerShot * reduction;
 
         var name = "[+] {{ STAT_SAVER_MAIN_FLICK | translate }}";
-        var desc = "{{ DESC_MAIN_COST | translate }}".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+        var desc = "{{ DESC_MAIN_COST | translate }}".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});
         var label = "{{ LABEL_MAIN_COST | translate }}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: "{{SHOT_UNIT_FLICK | translate}}"});
         var value = costPerShot;
         var percentage = (100 - (reduction*100)).toFixed(1);
@@ -1172,7 +1172,7 @@ angular
         if(saveStat) {
           $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Ink Consumption (Main)");
         }
-        return $scope.statValuesToDict(name, value, percentage, label, desc);        
+        return $scope.statValuesToDict(name, value, percentage, label, desc);
       }
 
       if(stat == "STAT_SAVER_MAIN_HORIZONTAL_FLICK") {
@@ -1200,13 +1200,13 @@ angular
           abilityScore = 57;
         }
 
-        var p = $scope.calcP(abilityScore);       
+        var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(ink_saver_parameters);
         var reduction = $scope.calcRes(ink_saver_parameters, p, s);
         var costPerShot = $scope.loadout.weapon.horizontalInkPerShot * reduction;
 
         var name = "[+] {{ STAT_SAVER_MAIN_HORIZONTAL_FLICK | translate }}";
-        var desc = "{{ DESC_MAIN_COST | translate }}".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+        var desc = "{{ DESC_MAIN_COST | translate }}".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});
         var label = "{{ LABEL_MAIN_COST | translate }}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: "{{SHOT_UNIT_FLICK_HORIZ | translate}}"});
         var value = costPerShot;
         var percentage = (100 - (reduction*100)).toFixed(1);
@@ -1242,13 +1242,13 @@ angular
           abilityScore = 57;
         }
 
-        var p = $scope.calcP(abilityScore);       
+        var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(ink_saver_parameters);
         var reduction = $scope.calcRes(ink_saver_parameters, p, s);
         var costPerShot = $scope.loadout.weapon.verticalInkPerShot * reduction;
 
         var name = "[+] {{ STAT_SAVER_MAIN_VERTICAL_FLICK | translate }}";
-        var desc = "{{ DESC_MAIN_COST | translate }}".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+        var desc = "{{ DESC_MAIN_COST | translate }}".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});
         var label = "{{ LABEL_MAIN_COST | translate }}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: "{{SHOT_UNIT_FLICK_VERT | translate}}"});
         var value = costPerShot;
         var percentage = (100 - (reduction*100)).toFixed(1);
@@ -1262,7 +1262,7 @@ angular
       if(stat == "STAT_SAVER_SUB") {
         var ink_saver_sub_parameters = null;
         var sub = $scope.getSubByName($scope.loadout.weapon.sub);
-        
+
         if(sub.inkSaver == 'A') {
           ink_saver_sub_parameters = $scope.parameters["Ink Saver Sub"]["A"];
         }
@@ -1281,7 +1281,7 @@ angular
         if(sub.inkSaver == 'F') {
           ink_saver_sub_parameters = $scope.parameters["Ink Saver Sub"]["F"];
         }
-  
+
         var abilityScore = $scope.loadout.calcAbilityScore('Ink Saver (Sub)');
 
         if($scope.loadout.hasAbility('Comeback') && $scope.conditionalAbilitySelected("Comeback")) {
@@ -1295,10 +1295,10 @@ angular
           abilityScore = 57;
         }
 
-        var p = $scope.calcP(abilityScore);       
+        var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(ink_saver_sub_parameters);
-        var reduction = $scope.calcRes(ink_saver_sub_parameters, p, s);      
-  
+        var reduction = $scope.calcRes(ink_saver_sub_parameters, p, s);
+
         var costPerSub = null;
         if($scope.loadout.weapon.type == "Splattershot Jr.") {
           costPerSub = (sub.cost - sub.cost * 0.1) * reduction;
@@ -1306,18 +1306,18 @@ angular
         else {
           costPerSub = sub.cost * reduction;
         }
-  
+
         var name = "{{ STAT_SAVER_SUB | translate }}";
         var desc = "{{ DESC_SUB_COST | translate }}".format({reduction: (100 - (reduction*100)).toFixed(1)})
-        var label = "{{ LABEL_SUB_COST | translate }}".format({value: $scope.toFixedTrimmed(costPerSub,3)})      
+        var label = "{{ LABEL_SUB_COST | translate }}".format({value: $scope.toFixedTrimmed(costPerSub,3)})
         var value = costPerSub;
         var percentage = (100 - (reduction*100)).toFixed(1);
-  
+
         if($scope.logging) {
           var ink_saver_sub_debug_log = {"Ink Saver (Sub)":costPerSub,"AP":abilityScore,"P":p,"S":s,"Delta":reduction}
           console.log(ink_saver_sub_debug_log);
         }
-  
+
         return $scope.statValuesToDict(name, value, percentage, label, desc);
       }
 
@@ -1337,24 +1337,24 @@ angular
           abilityScore = 57;
         }
 
-        var p = $scope.calcP(abilityScore);       
+        var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(ink_recovery_parameters);
         var refill_rate = $scope.calcRes(ink_recovery_parameters, p, s);
         var refill_time = refill_rate / 60;
         var delta = 3 / refill_time * 100;
-  
+
         if($scope.logging) {
           var refill_speed_squid_debug_log = {"Ink Recovery Speed (Squid)":refill_rate,"time":refill_time,"AP":abilityScore,"P":p,"S":s,"Delta":delta}
           console.log(refill_speed_squid_debug_log);
         }
-  
+
         var name = "{{ STAT_RECOVERY_SQUID | translate }}";
         var value = delta;
         var percentage = (100 - (100 / delta) * 100).toFixed(1);
         var desc = "{{ DESC_RECOVERY_TIME | translate }}".format({value: refill_time.toFixed(2)})
         var label = "{{ LABEL_TIME | translate }}".format({value: refill_time.toFixed(2)})
-        
-        return $scope.statValuesToDict(name, value, percentage, label, desc);       
+
+        return $scope.statValuesToDict(name, value, percentage, label, desc);
       }
 
       // TODO: Fix the progress bar so it decreases
@@ -1373,204 +1373,204 @@ angular
           abilityScore = 57;
         }
 
-        var p = $scope.calcP(abilityScore);       
+        var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(ink_recovery_parameters);
         var refill_rate = $scope.calcRes(ink_recovery_parameters, p, s);
         var refill_time = refill_rate / 60;
         var delta = 10 / refill_time * 100;
-  
+
         if($scope.logging) {
           var refill_speed_squid_debug_log = {"Ink Recovery Speed (Kid)":refill_rate,"time":refill_time,"AP":abilityScore,"P":p,"S":s,"Delta":delta}
           console.log(refill_speed_squid_debug_log);
         }
-  
+
         var name = "{{ STAT_RECOVERY_KID | translate }}";
         var value = delta;
         var percentage = (100 - (100 / delta) * 100).toFixed(1);
-        var desc = "{{ DESC_RECOVERY_TIME | translate }}".format({value: refill_time.toFixed(2)})      
+        var desc = "{{ DESC_RECOVERY_TIME | translate }}".format({value: refill_time.toFixed(2)})
         var label = "{{ LABEL_TIME | translate }}".format({value: refill_time.toFixed(2)})
 
-        return $scope.statValuesToDict(name, value, percentage, label, desc);     
-      }      
+        return $scope.statValuesToDict(name, value, percentage, label, desc);
+      }
 
       if(weaponType == ".52 Gal") {
         if(stat == "STAT_MAIN_POWER_UP_JUMP_SHOT_RANDOMIZATION") {
           var parameters = $scope.parameters["Main Power Up"][".52 Gal"]["DegJumpRandom"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_JUMP_SHOT_RANDOMIZATION | translate }}";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
-        
+
         if(stat == "STAT_MAIN_POWER_UP_GROUND_SHOT_RANDOMIZATION") {
           var parameters = $scope.parameters["Main Power Up"][".52 Gal"]["DegRandom"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_GROUND_SHOT_RANDOMIZATION | translate }}";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
-  
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);         
-        }        
+
+          return $scope.statValuesToDict(name, value, percentage, label);
+        }
       }
 
       if(weaponType == ".96 Gal") {
         if(stat == "STAT_MAIN_POWER_UP_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"][".96 Gal"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"][".96 Gal"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);       
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Aerospray") {
         if(stat == "STAT_MAIN_POWER_UP_INK_COVERAGE") {
-          var parameters = $scope.parameters["Main Power Up"]["Aerospray"]["SplashPaintRadius"]["params"];        
-          var p = $scope.calcP(abilityScore);      
+          var parameters = $scope.parameters["Main Power Up"]["Aerospray"]["SplashPaintRadius"]["params"];
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
-          var name = "{{ STAT_MAIN_POWER_UP_INK_COVERAGE | translate }}";      
+
+          var name = "{{ STAT_MAIN_POWER_UP_INK_COVERAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);          
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Ballpoint Splatling") {
         if(stat == "STAT_MAIN_POWER_UP_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Ballpoint Splatling"]["DamageRate"]["normal_params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.normal;
           if($scope.loadout.weapon.mpuMaxDamage.normal != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.normal) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.normal;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-          
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);         
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Ballpoint Splatling"]["DamageRate"]["normal_params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.normal;
           if($scope.loadout.weapon.mpuMaxDamage.normal != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.normal) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.normal;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -1579,12 +1579,12 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_REPEAT_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Ballpoint Splatling"]["DamageRate"]["repeat_params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var min_damage = result * $scope.loadout.weapon.minDamage.repeat;
           if($scope.loadout.weapon.mpuMaxDamage.repeat != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.repeat) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.repeat;
@@ -1594,7 +1594,7 @@ angular
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -1608,32 +1608,32 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_REPEAT_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Ballpoint Splatling"]["DamageRate"]["repeat_params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           var max_damage = result * $scope.loadout.weapon.maxDamage.repeat;
           if($scope.loadout.weapon.mpuMaxDamage.repeat != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.repeat) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.repeat;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_REPEAT_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
           return $scope.statValuesToDict(name, value, percentage, label);
-        }        
+        }
       }
 
       if(weaponType == "Bamboozler 14") {
@@ -1644,17 +1644,17 @@ angular
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var max_damage = result * $scope.loadout.weapon.minDamage.partial;
           if($scope.loadout.weapon.mpuMaxDamage.partial != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.partial) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -1668,27 +1668,27 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Bamboozler 14"]["MinMaxChargeDamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           var max_damage = result * $scope.loadout.weapon.maxDamage.partial;
           if($scope.loadout.weapon.mpuMaxDamage.partial != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.partial) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -1702,22 +1702,22 @@ angular
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var max_damage = result * $scope.loadout.weapon.minDamage.full;
           if($scope.loadout.weapon.mpuMaxDamage.full != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.full) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_FULL_CHARGE_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
@@ -1731,17 +1731,17 @@ angular
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var max_damage = result * $scope.loadout.weapon.maxDamage.full;
           if($scope.loadout.weapon.mpuMaxDamage.full != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.full) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_FULL_CHARGE_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -1750,14 +1750,14 @@ angular
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);          
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Blaster") {
         if(stat == "STAT_MAIN_POWER_UP_JUMP_SHOT_RANDOMIZATION") {
           var parameters = $scope.parameters["Main Power Up"]["Blaster"]["DegJumpRandom"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
@@ -1767,7 +1767,7 @@ angular
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -1780,7 +1780,7 @@ angular
       if(weaponType == "Bloblobber") {
         if(stat == "STAT_MAIN_POWER_UP_INK_COVERAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Bloblobber"]["SplashPaintRadiusRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
@@ -1790,7 +1790,7 @@ angular
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed((result * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -1803,58 +1803,58 @@ angular
       if(weaponType == "Carbon Roller") {
         if(stat == "STAT_MAIN_POWER_UP_ROLLING_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Carbon Roller"]["DamageRate"]["rolling"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.rolling;
           if($scope.loadout.weapon.mpuMaxDamage.rolling != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.rolling) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.rolling;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_ROLLING_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-          
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);         
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_ROLLING_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Carbon Roller"]["DamageRate"]["rolling"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.rolling;
           if($scope.loadout.weapon.mpuMaxDamage.rolling != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.rolling) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.rolling;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_ROLLING_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -1863,58 +1863,58 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_STANDING_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Carbon Roller"]["DamageRate"]["standing"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.standing;
           if($scope.loadout.weapon.mpuMaxDamage.standing != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.standing) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.standing;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_STANDING_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-          
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);         
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_STANDING_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Carbon Roller"]["DamageRate"]["standing"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.standing;
           if($scope.loadout.weapon.mpuMaxDamage.standing != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.standing) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.standing;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_STANDING_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -1923,58 +1923,58 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_JUMPING_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Carbon Roller"]["DamageRate"]["jumping"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.jumping;
           if($scope.loadout.weapon.mpuMaxDamage.jumping != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.jumping) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.jumping;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_JUMPING_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-          
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);         
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_JUMPING_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Carbon Roller"]["DamageRate"]["jumping"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.jumping;
           if($scope.loadout.weapon.mpuMaxDamage.jumping != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.jumping) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.jumping;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_JUMPING_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -1985,22 +1985,22 @@ angular
       if(weaponType == "Clash Blaster") {
         if(stat == "STAT_MAIN_POWER_UP_JUMP_SHOT_RANDOMIZATION") {
           var parameters = $scope.parameters["Main Power Up"]["Clash Blaster"]["DegJumpRandom"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_JUMP_SHOT_RANDOMIZATION | translate }}";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
@@ -2008,170 +2008,170 @@ angular
       if(weaponType == "Dapple Dualies") {
         if(stat == "STAT_MAIN_POWER_UP_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Dapple Dualies"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Dapple Dualies"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);       
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Dualie Squelchers") {
         if(stat == "STAT_MAIN_POWER_UP_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Dualie Squelchers"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Dualie Squelchers"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);       
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Dynamo Roller") {
         if(stat == "STAT_MAIN_POWER_UP_ROLLING_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Dynamo Roller"]["DamageRate"]["rolling"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.rolling;
           if($scope.loadout.weapon.mpuMaxDamage.rolling != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.rolling) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.rolling;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_ROLLING_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-          
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);         
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_ROLLING_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Dynamo Roller"]["DamageRate"]["rolling"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.rolling;
           if($scope.loadout.weapon.mpuMaxDamage.rolling != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.rolling) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.rolling;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_ROLLING_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -2180,58 +2180,58 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_STANDING_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Dynamo Roller"]["DamageRate"]["standing"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.standing;
           if($scope.loadout.weapon.mpuMaxDamage.standing != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.standing) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.standing;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_STANDING_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-          
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);         
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_STANDING_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Dynamo Roller"]["DamageRate"]["standing"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.standing;
           if($scope.loadout.weapon.mpuMaxDamage.standing != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.standing) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.standing;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_STANDING_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -2240,58 +2240,58 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_JUMPING_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Dynamo Roller"]["DamageRate"]["jumping"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.jumping;
           if($scope.loadout.weapon.mpuMaxDamage.jumping != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.jumping) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.jumping;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_JUMPING_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-          
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);         
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_JUMPING_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Dynamo Roller"]["DamageRate"]["jumping"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.jumping;
           if($scope.loadout.weapon.mpuMaxDamage.jumping != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.jumping) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.jumping;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_JUMPING_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -2302,7 +2302,7 @@ angular
       if(weaponType == "E-liter 4K Scope") {
         if(stat == "STAT_MAIN_POWER_UP_FULL_CHARGE_DISTANCE") {
           var parameters = $scope.parameters["Main Power Up"]["E-liter 4K Scope"]["FullChargeDistance"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
@@ -2312,21 +2312,21 @@ angular
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(result,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);          
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_DISTANCE") {
           var parameters = $scope.parameters["Main Power Up"]["E-liter 4K Scope"]["MaxDistance"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
@@ -2336,44 +2336,44 @@ angular
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(result,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);          
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_INK_COVERAGE") {
-          var parameters = $scope.parameters["Main Power Up"]["E-liter 4K Scope"]["SplashPaintRadiusRate"]["params"];        
-          var p = $scope.calcP(abilityScore);      
+          var parameters = $scope.parameters["Main Power Up"]["E-liter 4K Scope"]["SplashPaintRadiusRate"]["params"];
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var name = "{{ STAT_MAIN_POWER_UP_INK_COVERAGE | translate }}";
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed((result * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);          
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
-      
+
       if(weaponType == "E-liter 4K") {
         if(stat == "STAT_MAIN_POWER_UP_FULL_CHARGE_DISTANCE") {
           var parameters = $scope.parameters["Main Power Up"]["E-liter 4K"]["FullChargeDistance"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
@@ -2383,21 +2383,21 @@ angular
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(result,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);          
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_DISTANCE") {
           var parameters = $scope.parameters["Main Power Up"]["E-liter 4K"]["MaxDistance"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
@@ -2407,44 +2407,44 @@ angular
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(result,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);          
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_INK_COVERAGE") {
-          var parameters = $scope.parameters["Main Power Up"]["E-liter 4K"]["SplashPaintRadiusRate"]["params"];        
-          var p = $scope.calcP(abilityScore);      
+          var parameters = $scope.parameters["Main Power Up"]["E-liter 4K"]["SplashPaintRadiusRate"]["params"];
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var name = "{{ STAT_MAIN_POWER_UP_INK_COVERAGE | translate }}";
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed((result * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);          
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Explosher") {
         if(stat == "STAT_MAIN_POWER_UP_INK_COVERAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Explosher"]["SplashPaintRadiusRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
@@ -2454,7 +2454,7 @@ angular
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed((result * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -2467,58 +2467,58 @@ angular
       if(weaponType == "Flingza Roller") {
         if(stat == "STAT_MAIN_POWER_UP_ROLLING_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Flingza Roller"]["DamageRate"]["rolling"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.rolling;
           if($scope.loadout.weapon.mpuMaxDamage.rolling != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.rolling) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.rolling;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_ROLLING_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-          
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);         
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_ROLLING_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Flingza Roller"]["DamageRate"]["rolling"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.rolling;
           if($scope.loadout.weapon.mpuMaxDamage.rolling != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.rolling) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.rolling;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_ROLLING_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -2527,58 +2527,58 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_STANDING_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Flingza Roller"]["DamageRate"]["standing"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.standing;
           if($scope.loadout.weapon.mpuMaxDamage.standing != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.standing) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.standing;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_STANDING_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-          
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);         
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_STANDING_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Flingza Roller"]["DamageRate"]["standing"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.standing;
           if($scope.loadout.weapon.mpuMaxDamage.standing != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.standing) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.standing;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_STANDING_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -2587,85 +2587,85 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_JUMPING_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Flingza Roller"]["DamageRate"]["jumping"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.jumping;
           if($scope.loadout.weapon.mpuMaxDamage.jumping != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.jumping) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.jumping;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_JUMPING_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-          
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);         
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_JUMPING_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Flingza Roller"]["DamageRate"]["jumping"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.jumping;
           if($scope.loadout.weapon.mpuMaxDamage.jumping != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.jumping) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.jumping;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_JUMPING_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
           return $scope.statValuesToDict(name, value, percentage, label);
         }
-      }    
+      }
 
       if(weaponType == "Glooga Dualies") {
         if(stat == "STAT_MAIN_POWER_UP_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Glooga Dualies"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.normal;
           if($scope.loadout.weapon.mpuMaxDamage.normal != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.normal) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.normal;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -2679,23 +2679,23 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Glooga Dualies"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.normal;
           if($scope.loadout.weapon.mpuMaxDamage.normal != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.normal) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.normal;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -2704,28 +2704,28 @@ angular
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);       
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_BURST_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Glooga Dualies"]["SideStepOneMuzzleDamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.burst;
           if($scope.loadout.weapon.mpuMaxDamage.burst != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.burst) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.burst;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_BURST_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -2739,23 +2739,23 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_BURST_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Glooga Dualies"]["SideStepOneMuzzleDamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.burst;
           if($scope.loadout.weapon.mpuMaxDamage.burst != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.burst) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.burst;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_BURST_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -2764,7 +2764,7 @@ angular
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);       
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
@@ -2776,17 +2776,17 @@ angular
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var max_damage = result * $scope.loadout.weapon.minDamage.partial;
           if($scope.loadout.weapon.mpuMaxDamage.partial != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.partial) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -2800,27 +2800,27 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Goo Tuber"]["MinMaxChargeDamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           var max_damage = result * $scope.loadout.weapon.maxDamage.partial;
           if($scope.loadout.weapon.mpuMaxDamage.partial != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.partial) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -2834,22 +2834,22 @@ angular
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var max_damage = result * $scope.loadout.weapon.minDamage.full;
           if($scope.loadout.weapon.mpuMaxDamage.full != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.full) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_FULL_CHARGE_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
@@ -2863,17 +2863,17 @@ angular
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var max_damage = result * $scope.loadout.weapon.maxDamage.full;
           if($scope.loadout.weapon.mpuMaxDamage.full != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.full) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_FULL_CHARGE_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -2882,75 +2882,75 @@ angular
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);          
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "H-3 Nozzlenose") {
         if(stat == "STAT_MAIN_POWER_UP_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["H-3 Nozzlenose"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["H-3 Nozzlenose"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);       
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Heavy Splatling") {
         if(stat == "STAT_MAIN_POWER_UP_FIRST_RING_BURST_DURATION") {
           var parameters = $scope.parameters["Main Power Up"]["Heavy Splatling"]["MaxChargeShootingFrameTimes"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s) / 60;
           var max_param = parameters[0] / 60;
           var min_param = parameters[2] / 60;
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_FIRST_RING_BURST_DURATION | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
@@ -2960,52 +2960,52 @@ angular
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);   
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_SECOND_RING_BURST_DURATION") {
           var parameters = $scope.parameters["Main Power Up"]["Heavy Splatling"]["MaxChargeShootingFrameTimes"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s) / 60;
           var max_param = parameters[0] / 60;
           var min_param = parameters[2] / 60;
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_SECOND_RING_BURST_DURATION | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{{ LABEL_TIME | translate }}".format({value: $scope.toFixedTrimmed(result * $scope.loadout.weapon.secondRingBurstDuration,2)});
-  
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);   
-        }        
+
+          return $scope.statValuesToDict(name, value, percentage, label);
+        }
       }
 
       if(weaponType == "Hydra Splatling") {
         if(stat == "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Hydra Splatling"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.partial;
           if($scope.loadout.weapon.mpuMaxDamage.partial != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.partial) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -3019,23 +3019,23 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Hydra Splatling"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.partial;
           if($scope.loadout.weapon.mpuMaxDamage.partial != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.partial) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -3044,28 +3044,28 @@ angular
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);       
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_FULL_CHARGE_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Hydra Splatling"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.full;
           if($scope.loadout.weapon.mpuMaxDamage.full != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.full) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_FULL_CHARGE_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -3076,26 +3076,26 @@ angular
           }
           return $scope.statValuesToDict(name, value, percentage, label);
         }
-  
+
         if(stat == "STAT_MAIN_POWER_UP_FULL_CHARGE_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Hydra Splatling"]["DamageMaxMaxChargeRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.full;
           if($scope.loadout.weapon.mpuMaxDamage.full != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.full) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_FULL_CHARGE_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -3104,8 +3104,8 @@ angular
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);       
-        }        
+          return $scope.statValuesToDict(name, value, percentage, label);
+        }
       }
 
       if(weaponType == "Inkbrush") {
@@ -3142,7 +3142,7 @@ angular
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed((result * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -3155,43 +3155,43 @@ angular
       if(weaponType == "Jet Squelcher") {
         if(stat == "STAT_MAIN_POWER_UP_GROUND_SHOT_RANDOMIZATION") {
           var parameters = $scope.parameters["Main Power Up"]["Jet Squelcher"]["DegRandom"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_GROUND_SHOT_RANDOMIZATION | translate }}";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
-  
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);          
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
-        
+
         if(stat == "STAT_MAIN_POWER_UP_BULLET_VELOCITY") {
           var parameters = $scope.parameters["Main Power Up"]["Jet Squelcher"]["InitVelRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_BULLET_VELOCITY | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
-  
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
@@ -3199,84 +3199,84 @@ angular
       if(weaponType == "L-3 Nozzlenose") {
         if(stat == "STAT_MAIN_POWER_UP_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["L-3 Nozzlenose"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["L-3 Nozzlenose"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);       
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Luna Blaster") {
         if(stat == "STAT_MAIN_POWER_UP_HIGH_DAMAGE_RADIUS") {
           var parameters = $scope.parameters["Main Power Up"]["Luna Blaster"]["CollisionRadiusRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_HIGH_DAMAGE_RADIUS | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
-  
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
-        
+
         if(stat == "STAT_MAIN_POWER_UP_INK_COVERAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Luna Blaster"]["SphereSplashDropPaintRadiusRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
@@ -3286,7 +3286,7 @@ angular
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed((result * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -3299,12 +3299,12 @@ angular
       if(weaponType == "Mini Splatling") {
         if(stat == "STAT_MAIN_POWER_UP_FIRST_RING_BURST_DURATION") {
           var parameters = $scope.parameters["Main Power Up"]["Mini Splatling"]["MaxChargeShootingFrameTimes"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s) / 60;
           var max_param = parameters[0] / 60;
           var min_param = parameters[2] / 60;
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_FIRST_RING_BURST_DURATION | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
@@ -3314,85 +3314,85 @@ angular
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);   
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_SECOND_RING_BURST_DURATION") {
           var parameters = $scope.parameters["Main Power Up"]["Mini Splatling"]["MaxChargeShootingFrameTimes"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s) / 60;
           var max_param = parameters[0] / 60;
           var min_param = parameters[2] / 60;
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_SECOND_RING_BURST_DURATION | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{{ LABEL_TIME | translate }}".format({value: $scope.toFixedTrimmed(result * $scope.loadout.weapon.secondRingBurstDuration,2)});
-  
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);   
-        }        
+
+          return $scope.statValuesToDict(name, value, percentage, label);
+        }
       }
 
       if(weaponType == "N-ZAP") {
         if(stat == "STAT_MAIN_POWER_UP_GROUND_SHOT_RANDOMIZATION") {
           var parameters = $scope.parameters["Main Power Up"]["N-ZAP"]["DegRandom"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_GROUND_SHOT_RANDOMIZATION | translate }}";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
-  
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);          
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_INK_COVERAGE") {
-          var parameters = $scope.parameters["Main Power Up"]["N-ZAP"]["SplashPaintRadius"]["params"];        
-          var p = $scope.calcP(abilityScore);      
+          var parameters = $scope.parameters["Main Power Up"]["N-ZAP"]["SplashPaintRadius"]["params"];
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
-          var name = "{{ STAT_MAIN_POWER_UP_INK_COVERAGE | translate }}";      
+
+          var name = "{{ STAT_MAIN_POWER_UP_INK_COVERAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);          
-        }        
+
+          return $scope.statValuesToDict(name, value, percentage, label);
+        }
       }
 
       if(weaponType == "Nautilus") {
         if(stat == "STAT_MAIN_POWER_UP_FIRST_RING_BURST_DURATION") {
           var parameters = $scope.parameters["Main Power Up"]["Nautilus"]["MaxChargeShootingFrameTimes"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s) / 60;
           var max_param = parameters[0] / 60;
           var min_param = parameters[2] / 60;
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_FIRST_RING_BURST_DURATION | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
@@ -3402,30 +3402,30 @@ angular
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);   
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_SECOND_RING_BURST_DURATION") {
           var parameters = $scope.parameters["Main Power Up"]["Nautilus"]["MaxChargeShootingFrameTimes"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s) / 60;
           var max_param = parameters[0] / 60;
           var min_param = parameters[2] / 60;
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_SECOND_RING_BURST_DURATION | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{{ LABEL_TIME | translate }}".format({value: $scope.toFixedTrimmed(result * $scope.loadout.weapon.secondRingBurstDuration,2)});
-  
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);   
-        }        
+
+          return $scope.statValuesToDict(name, value, percentage, label);
+        }
       }
 
       if(weaponType == "Octobrush") {
@@ -3462,7 +3462,7 @@ angular
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed((result * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -3475,22 +3475,22 @@ angular
       if(weaponType == "Range Blaster") {
         if(stat == "STAT_MAIN_POWER_UP_JUMP_SHOT_RANDOMIZATION") {
           var parameters = $scope.parameters["Main Power Up"]["Range Blaster"]["DegJumpRandom"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_JUMP_SHOT_RANDOMIZATION | translate }}";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
@@ -3498,48 +3498,48 @@ angular
       if(weaponType == "Rapid Blaster Pro") {
         if(stat == "STAT_MAIN_POWER_UP_JUMP_SHOT_RANDOMIZATION") {
           var parameters = $scope.parameters["Main Power Up"]["Rapid Blaster Pro"]["DegJumpRandom"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_JUMP_SHOT_RANDOMIZATION | translate }}";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_DAMAGE_RADIUS") {
           var parameters = $scope.parameters["Main Power Up"]["Rapid Blaster Pro"]["CollisionRadiusRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_value = $scope.parameters["Main Power Up"]["Rapid Blaster Pro"]["CollisionRadiusRate"]["CollisionRadiusMiddle_MWPUG_Max"];
           var min_value = $scope.parameters["Main Power Up"]["Rapid Blaster Pro"]["CollisionRadiusRate"]["CollisionRadiusMiddle"];
-  
+
           result = result * $scope.parameters["Main Power Up"]["Rapid Blaster Pro"]["CollisionRadiusRate"]["CollisionRadiusMiddle"];
           if(result > max_value) {
             result = max_value;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_DAMAGE_RADIUS | translate }}";
           var value = $scope.toFixedTrimmed((result/max_value) * 100,2);
           var percentage = Math.abs(((result/min_value - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_value) * 100),3)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
@@ -3547,56 +3547,56 @@ angular
       if(weaponType == "Rapid Blaster") {
         if(stat == "STAT_MAIN_POWER_UP_JUMP_SHOT_RANDOMIZATION") {
           var parameters = $scope.parameters["Main Power Up"]["Rapid Blaster"]["DegJumpRandom"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_JUMP_SHOT_RANDOMIZATION | translate }}";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_DAMAGE_RADIUS") {
           var parameters = $scope.parameters["Main Power Up"]["Rapid Blaster"]["CollisionRadiusRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_value = $scope.parameters["Main Power Up"]["Rapid Blaster"]["CollisionRadiusRate"]["CollisionRadiusMiddle_MWPUG_Max"];
           var min_value = $scope.parameters["Main Power Up"]["Rapid Blaster"]["CollisionRadiusRate"]["CollisionRadiusMiddle"];
-  
+
           result = result * $scope.parameters["Main Power Up"]["Rapid Blaster"]["CollisionRadiusRate"]["CollisionRadiusMiddle"];
           if(result > max_value) {
             result = max_value;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_DAMAGE_RADIUS | translate }}";
           var value = $scope.toFixedTrimmed((result/max_value) * 100,2);
           var percentage = Math.abs(((result/min_value - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_value) * 100),3)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
-      }  
+      }
 
       if(weaponType == "Slosher") {
         if(stat == "STAT_MAIN_POWER_UP_MAX_DAMAGE_RANGE") {
           var parameters = $scope.parameters["Main Power Up"]["Slosher"]["BulletDamageMaxDist"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
@@ -3606,13 +3606,13 @@ angular
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(result,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);          
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
@@ -3629,75 +3629,75 @@ angular
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed((result * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
 
           return $scope.statValuesToDict(name, value, percentage, label);
-        }        
+        }
       }
 
       if(weaponType == "Splash-o-matic") {
         if(stat == "STAT_MAIN_POWER_UP_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Splash-o-matic"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Splash-o-matic"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);       
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Splat Brella") {
         var parameters = $scope.parameters["Main Power Up"]["Splat Brella"]["CanopyNakedFrame"]["params"];
-        var p = $scope.calcP(abilityScore);      
+        var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(parameters);
         var result = $scope.calcRes(parameters, p, s) / 60;
         var max_param = parameters[0] / 60;
@@ -3713,9 +3713,9 @@ angular
           console.log(main_power_up_debug_log);
         }
 
-        return $scope.statValuesToDict(name, value, percentage, label);   
+        return $scope.statValuesToDict(name, value, percentage, label);
       }
-      
+
       if(weaponType == "Splat Charger") {
         if(stat == "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Splat Charger"]["MinMaxChargeDamageRate"]["params"];
@@ -3724,17 +3724,17 @@ angular
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var max_damage = result * $scope.loadout.weapon.minDamage.partial;
           if($scope.loadout.weapon.mpuMaxDamage.partial != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.partial) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -3748,27 +3748,27 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Splat Charger"]["MinMaxChargeDamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           var max_damage = result * $scope.loadout.weapon.maxDamage.partial;
           if($scope.loadout.weapon.mpuMaxDamage.partial != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.partial) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -3782,22 +3782,22 @@ angular
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var max_damage = result * $scope.loadout.weapon.minDamage.full;
           if($scope.loadout.weapon.mpuMaxDamage.full != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.full) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_FULL_CHARGE_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
@@ -3811,17 +3811,17 @@ angular
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var max_damage = result * $scope.loadout.weapon.maxDamage.full;
           if($scope.loadout.weapon.mpuMaxDamage.full != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.full) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_FULL_CHARGE_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -3830,121 +3830,121 @@ angular
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);          
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Splat Dualies") {
         if(stat == "STAT_MAIN_POWER_UP_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Splat Dualies"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Splat Dualies"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);       
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Splat Roller") {
         if(stat == "STAT_MAIN_POWER_UP_ROLLING_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Splat Roller"]["DamageRate"]["rolling"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.rolling;
           if($scope.loadout.weapon.mpuMaxDamage.rolling != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.rolling) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.rolling;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_ROLLING_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-          
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);         
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_ROLLING_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Splat Roller"]["DamageRate"]["rolling"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.rolling;
           if($scope.loadout.weapon.mpuMaxDamage.rolling != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.rolling) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.rolling;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_ROLLING_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -3953,58 +3953,58 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_STANDING_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Splat Roller"]["DamageRate"]["standing"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.standing;
           if($scope.loadout.weapon.mpuMaxDamage.standing != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.standing) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.standing;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_STANDING_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-          
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);         
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_STANDING_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Splat Roller"]["DamageRate"]["standing"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.standing;
           if($scope.loadout.weapon.mpuMaxDamage.standing != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.standing) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.standing;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_STANDING_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -4013,58 +4013,58 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_JUMPING_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Splat Roller"]["DamageRate"]["jumping"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.jumping;
           if($scope.loadout.weapon.mpuMaxDamage.jumping != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.jumping) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.jumping;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_JUMPING_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-          
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);         
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_JUMPING_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Splat Roller"]["DamageRate"]["jumping"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.jumping;
           if($scope.loadout.weapon.mpuMaxDamage.jumping != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.jumping) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.jumping;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_JUMPING_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -4080,17 +4080,17 @@ angular
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var max_damage = result * $scope.loadout.weapon.minDamage.partial;
           if($scope.loadout.weapon.mpuMaxDamage.partial != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.partial) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -4104,27 +4104,27 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Splatterscope"]["MinMaxChargeDamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           var max_damage = result * $scope.loadout.weapon.maxDamage.partial;
           if($scope.loadout.weapon.mpuMaxDamage.partial != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.partial) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -4138,22 +4138,22 @@ angular
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var max_damage = result * $scope.loadout.weapon.minDamage.full;
           if($scope.loadout.weapon.mpuMaxDamage.full != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.full) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_FULL_CHARGE_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
@@ -4167,17 +4167,17 @@ angular
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var max_damage = result * $scope.loadout.weapon.maxDamage.full;
           if($scope.loadout.weapon.mpuMaxDamage.full != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.full) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_FULL_CHARGE_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -4186,244 +4186,244 @@ angular
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);          
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Splattershot Jr.") {
         if(stat == "STAT_MAIN_POWER_UP_INK_COVERAGE") {
-          var parameters = $scope.parameters["Main Power Up"]["Splattershot Jr."]["SplashPaintRadius"]["params"];        
-          var p = $scope.calcP(abilityScore);      
+          var parameters = $scope.parameters["Main Power Up"]["Splattershot Jr."]["SplashPaintRadius"]["params"];
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
-          var name = "{{ STAT_MAIN_POWER_UP_INK_COVERAGE | translate }}";      
+
+          var name = "{{ STAT_MAIN_POWER_UP_INK_COVERAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);          
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Splattershot Pro") {
         if(stat == "STAT_MAIN_POWER_UP_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Splattershot Pro"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Splattershot Pro"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);       
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Splattershot") {
         if(stat == "STAT_MAIN_POWER_UP_JUMP_SHOT_RANDOMIZATION") {
           var parameters = $scope.parameters["Main Power Up"]["Splattershot"]["DegJumpRandom"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_JUMP_SHOT_RANDOMIZATION | translate }}";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
-        
+
         if(stat == "STAT_MAIN_POWER_UP_GROUND_SHOT_RANDOMIZATION") {
           var parameters = $scope.parameters["Main Power Up"]["Splattershot"]["DegRandom"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_GROUND_SHOT_RANDOMIZATION | translate }}";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
-  
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);         
-        }        
+
+          return $scope.statValuesToDict(name, value, percentage, label);
+        }
       }
 
       if(weaponType == "Sploosh-o-matic") {
         if(stat == "STAT_MAIN_POWER_UP_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Sploosh-o-matic"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Sploosh-o-matic"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);       
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
-      }      
+      }
 
       if(weaponType == "Squeezer") {
         if(stat == "STAT_MAIN_POWER_UP_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Squeezer"]["DamageRate"]["normal_params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage.normal;
           if($scope.loadout.weapon.mpuMaxDamage.normal != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.normal) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.normal;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-          
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);         
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Squeezer"]["DamageRate"]["normal_params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage.normal;
           if($scope.loadout.weapon.mpuMaxDamage.normal != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.normal) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.normal;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
@@ -4432,12 +4432,12 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_REPEAT_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Squeezer"]["DamageRate"]["repeat_params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var min_damage = result * $scope.loadout.weapon.minDamage.repeat;
           if($scope.loadout.weapon.mpuMaxDamage.repeat != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage.repeat) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage.repeat;
@@ -4447,7 +4447,7 @@ angular
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
@@ -4461,38 +4461,38 @@ angular
 
         if(stat == "STAT_MAIN_POWER_UP_REPEAT_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Squeezer"]["DamageRate"]["repeat_params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
-          var min_param = parameters[2];        
-          
+          var min_param = parameters[2];
+
           var max_damage = result * $scope.loadout.weapon.maxDamage.repeat;
           if($scope.loadout.weapon.mpuMaxDamage.repeat != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage.repeat) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage.repeat;
           }
-  
+
           var name = "[+] {{ STAT_MAIN_POWER_UP_REPEAT_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 2");
           }
           return $scope.statValuesToDict(name, value, percentage, label);
-        }        
+        }
       }
 
       if(weaponType == "Squiffer") {
         if(stat == "STAT_MAIN_POWER_UP_FULL_CHARGE_DISTANCE") {
           var parameters = $scope.parameters["Main Power Up"]["Squiffer"]["FullChargeDistance"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
@@ -4502,21 +4502,21 @@ angular
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(result,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);          
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_DISTANCE") {
           var parameters = $scope.parameters["Main Power Up"]["Squiffer"]["MaxDistance"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
@@ -4526,59 +4526,59 @@ angular
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(result,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           if(saveStat) {
             $scope.saveToggledAbility($scope.loadout.weapon.name, stat, "Main Power Up 1");
           }
-          return $scope.statValuesToDict(name, value, percentage, label);          
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_INK_COVERAGE") {
-          var parameters = $scope.parameters["Main Power Up"]["Squiffer"]["SplashPaintRadiusRate"]["params"];        
-          var p = $scope.calcP(abilityScore);      
+          var parameters = $scope.parameters["Main Power Up"]["Squiffer"]["SplashPaintRadiusRate"]["params"];
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var name = "{{ STAT_MAIN_POWER_UP_INK_COVERAGE | translate }}";
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed((result * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);          
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Tenta Brella") {
         if(stat == "STAT_MAIN_POWER_UP_CANOPY_HP") {
           var parameters = $scope.parameters["Main Power Up"]["Tenta Brella"]["CanopyHP"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s) / 10;
           var max_param = parameters[0] / 10;
           var min_param = parameters[2] / 10;
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_CANOPY_HP | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(result,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
@@ -4586,85 +4586,85 @@ angular
       if(weaponType == "Tetra Dualies") {
         if(stat == "STAT_MAIN_POWER_UP_MIN_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Tetra Dualies"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var min_damage = result * $scope.loadout.weapon.minDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && min_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MIN_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(min_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
+
           return $scope.statValuesToDict(name, value, percentage, label);
         }
 
         if(stat == "STAT_MAIN_POWER_UP_MAX_DAMAGE") {
           var parameters = $scope.parameters["Main Power Up"]["Tetra Dualies"]["DamageRate"]["params"];
-          var p = $scope.calcP(abilityScore);      
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-  
+
           // Adjust max damage for MPU damage caps
           var max_damage = result * $scope.loadout.weapon.maxDamage;
           if($scope.loadout.weapon.mpuMaxDamage != null && max_damage >= $scope.loadout.weapon.mpuMaxDamage) {
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
-  
+
           var name = "{{ STAT_MAIN_POWER_UP_MAX_DAMAGE | translate }}";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_NO_UNIT | translate }}".format({value: $scope.toFixedTrimmed(max_damage,2)});
-          
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);       
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Tri-Slosher") {
         if(stat == "STAT_MAIN_POWER_UP_INK_COVERAGE") {
-          var parameters = $scope.parameters["Main Power Up"]["Tri-Slosher"]["SplashPaintRadiusRate"]["params"];        
-          var p = $scope.calcP(abilityScore);      
+          var parameters = $scope.parameters["Main Power Up"]["Tri-Slosher"]["SplashPaintRadiusRate"]["params"];
+          var p = $scope.calcP(abilityScore);
           var s = $scope.calcS(parameters);
           var result = $scope.calcRes(parameters, p, s);
           var max_param = parameters[0];
           var min_param = parameters[2];
-          
+
           var name = "{{ STAT_MAIN_POWER_UP_INK_COVERAGE | translate }}";
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{{ LABEL_PERCENT | translate }}".format({value: $scope.toFixedTrimmed((result * 100),3)});
-        
+
           if($scope.logging) {
             var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":percentage}
             console.log(main_power_up_debug_log);
           }
-  
-          return $scope.statValuesToDict(name, value, percentage, label);          
+
+          return $scope.statValuesToDict(name, value, percentage, label);
         }
       }
 
       if(weaponType == "Undercover Brella") {
         var parameters = $scope.parameters["Main Power Up"]["Undercover Brella"]["CanopyNakedFrame"]["params"];
-        var p = $scope.calcP(abilityScore);      
+        var p = $scope.calcP(abilityScore);
         var s = $scope.calcS(parameters);
         var result = $scope.calcRes(parameters, p, s) / 60;
         var max_param = parameters[0] / 60;
@@ -4680,7 +4680,7 @@ angular
           console.log(main_power_up_debug_log);
         }
 
-        return $scope.statValuesToDict(name, value, percentage, label);   
+        return $scope.statValuesToDict(name, value, percentage, label);
       }
 
     }
@@ -4695,7 +4695,7 @@ angular
         if(name == "[+] {{ STAT_MAIN_POWER_UP_MAX_DAMAGE | translate }}") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_REPEAT_MAX_DAMAGE", true);
-          $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);        
+          $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
         if(name == "[+] {{ STAT_MAIN_POWER_UP_REPEAT_MIN_DAMAGE | translate }}") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
@@ -4705,7 +4705,7 @@ angular
         if(name == "[+] {{ STAT_MAIN_POWER_UP_REPEAT_MAX_DAMAGE | translate }}") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_MAX_DAMAGE", true);
-          $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);        
+          $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
       }
 
@@ -4808,7 +4808,7 @@ angular
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_FULL_CHARGE_DISTANCE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
-        }        
+        }
       }
 
       if($scope.loadout.weapon.type == "E-liter 4K") {
@@ -4821,7 +4821,7 @@ angular
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_FULL_CHARGE_DISTANCE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
-        }        
+        }
       }
 
       if($scope.loadout.weapon.type == "Flingza Roller") {
@@ -5004,7 +5004,7 @@ angular
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
       }
-      
+
       if($scope.loadout.weapon.type == "Squeezer") {
         if(name == "[+] {{ STAT_MAIN_POWER_UP_MIN_DAMAGE | translate }}") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
@@ -5014,7 +5014,7 @@ angular
         if(name == "[+] {{ STAT_MAIN_POWER_UP_MAX_DAMAGE | translate }}") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_REPEAT_MAX_DAMAGE", true);
-          $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);        
+          $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
         if(name == "[+] {{ STAT_MAIN_POWER_UP_REPEAT_MIN_DAMAGE | translate }}") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
@@ -5024,9 +5024,9 @@ angular
         if(name == "[+] {{ STAT_MAIN_POWER_UP_REPEAT_MAX_DAMAGE | translate }}") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_MAX_DAMAGE", true);
-          $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);        
+          $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-      }      
+      }
 
       if($scope.loadout.weapon.type == "Squiffer") {
         if(name == "[+] {{ STAT_MAIN_POWER_UP_FULL_CHARGE_DISTANCE | translate }}") {
@@ -5038,7 +5038,7 @@ angular
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_FULL_CHARGE_DISTANCE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
-        }        
+        }
       }
 
       if($scope.loadout.weapon.class.toLowerCase() == 'splatling' || $scope.loadout.weapon.class.toLowerCase() == 'brella') {
@@ -5071,7 +5071,7 @@ angular
         else if(name == "[+] {{ STAT_SAVER_MAIN_VERTICAL_FLICK | translate }}") {
           var abilityScore = $scope.loadout.calcAbilityScore('Ink Saver (Main)');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_SAVER_MAIN", true);
-          $scope.displayStat("Ink Consumption (Main)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);  
+          $scope.displayStat("Ink Consumption (Main)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);
         }
 
         /****************************
@@ -5080,18 +5080,18 @@ angular
         if(name == "[+] {{ STAT_RUN_SPEED_ROLLING | translate }}") {
           var abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_RUN_SPEED_FLICKING_HORIZONTAL", true);
-          $scope.displayStat("Run Speed (Firing)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);          
+          $scope.displayStat("Run Speed (Firing)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);
         }
         else if(name == "[+] {{ STAT_RUN_SPEED_FLICKING_HORIZONTAL | translate }}") {
           var abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_RUN_SPEED_FLICKING_VERTICAL", true);
-          $scope.displayStat("Run Speed (Firing)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);          
+          $scope.displayStat("Run Speed (Firing)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);
 
         }
         else if(name == "[+] {{ STAT_RUN_SPEED_FLICKING_VERTICAL | translate }}") {
           var abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_RUN_SPEED_FIRING", true);
-          $scope.displayStat("Run Speed (Firing)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);          
+          $scope.displayStat("Run Speed (Firing)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);
         }
       }
 
@@ -5116,12 +5116,12 @@ angular
         if(name == "[+] {{ STAT_RUN_SPEED_DASHING | translate }}") {
           var abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_RUN_SPEED_FLICKING", true);
-          $scope.displayStat("Run Speed (Firing)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);          
+          $scope.displayStat("Run Speed (Firing)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);
         }
         else if(name == "[+] {{ STAT_RUN_SPEED_FLICKING | translate }}") {
           var abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_RUN_SPEED_FIRING", true);
-          $scope.displayStat("Run Speed (Firing)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);                    
+          $scope.displayStat("Run Speed (Firing)", statValues.name, statValues.value, statValues.percentage, statValues.label, statValues.desc);
         }
       }
 
@@ -5129,32 +5129,32 @@ angular
         case "[+] {{ STAT_TRACKING_TIME_POINT_SENSOR | translate }}":
           var abilityScore = $scope.loadout.calcAbilityScore('Bomb Defense Up DX');
           var tracking_time_parameters = $scope.parameters["Cold Blooded"]["Ink Mine"];
-          var p = this.calcP(abilityScore);      
+          var p = this.calcP(abilityScore);
           var s = this.calcS(tracking_time_parameters);
           var modifier = this.calcRes(tracking_time_parameters, p, s);
-    
+
           var duration = 5 * modifier;
           var max_duration = 5;
           var min_duration = tracking_time_parameters[2] * 5;
-    
+
           $scope.stats["Tracking Time"].name = "[+] {{ STAT_TRACKING_TIME_INK_MINE | translate }}"
           $scope.stats["Tracking Time"].value = $scope.toFixedTrimmed((duration/max_duration) * 100,2);
           $scope.stats["Tracking Time"].percentage = ((duration/min_duration - 1) * 100).toFixed(1);
           $scope.stats["Tracking Time"].label = "{{ LABEL_TIME | translate }}".format({value: $scope.toFixedTrimmed(duration,2)})
           $scope.stats["Tracking Time"].desc = "{{ DESC_TRACKING | translate }}";
           break;
-          
+
         case "[+] {{ STAT_TRACKING_TIME_INK_MINE | translate }}":
           var abilityScore = $scope.loadout.calcAbilityScore('Bomb Defense Up DX');
           var tracking_time_parameters = $scope.parameters["Cold Blooded"]["Point Sensor"];
-          var p = this.calcP(abilityScore);      
+          var p = this.calcP(abilityScore);
           var s = this.calcS(tracking_time_parameters);
           var modifier = this.calcRes(tracking_time_parameters, p, s);
-    
+
           var duration = 8 * modifier;
           var max_duration = 8;
           var min_duration = tracking_time_parameters[2] * 8;
-    
+
           $scope.stats["Tracking Time"].name = "[+] {{ STAT_TRACKING_TIME_POINT_SENSOR | translate }}"
           $scope.stats["Tracking Time"].value = $scope.toFixedTrimmed((duration/max_duration) * 100,2);
           $scope.stats["Tracking Time"].percentage = ((duration/min_duration - 1) * 100).toFixed(1);
@@ -5215,6 +5215,8 @@ angular
     }
 
     $scope.weaponRanks = [
+      "Custom Dualie Squelchers",
+      "N-ZAP '85",
       "Kensa Splattershot Pro",
       "Splatterscope",
       "Tentatek Splattershot",
@@ -5226,8 +5228,6 @@ angular
       "Slosher Deco",
       "Splat Roller",
       "Heavy Splatling",
-      "N-ZAP '85",
-      "Custom Dualie Squelchers",
       "Custom Explosher",
       "Grim Range Blaster",
       "Ballpoint Splatling Nouveau",
@@ -5326,40 +5326,40 @@ angular
           "E": [0.5, 0.75, 1.0],
           "F": [1.0, 1.0, 1.0]
       },
-  
+
       "Ink Saver Main": {
           "Low": [0.6, 0.8, 1.0],
           "High": [0.5, 0.7, 1.0],
           "Mid": [0.55, 0.775, 1.0]
       },
-  
+
       "Bomb Defense": {
           "Special": [0.65, 0.825, 1.0],
           "Additional": [1.0, 1.0, 1.0],
           "Heavy Light": [0.6, 0.8, 1.0],
           "Heavy Sub": [0.5, 0.75, 1.0]
       },
-  
+
       "Special Charge Up": {
           "default": [1.3, 1.15, 1.0]
       },
-  
+
       "Quick Respawn": {
           "Die Frames": [30.0, 60.0, 90.0],
           "Deathcam Frames": [90.0, 180.0, 270.0]
       },
-  
+
       "Special Saver": {
           "Splashdown": [1.25, 1.05, 0.75],
           "default": [1.0, 0.8, 0.5]
       },
-  
+
       "Swim Speed": {
           "Light": [2.4, 2.208, 2.016],
           "Heavy": [2.4, 2.064, 1.728],
           "Mid": [2.4, 2.16, 1.92]
       },
-  
+
       "Special Power Up": {
           "Curling Bomb Launcher": [520, 460, 400],
           "Other Bomb Launcher": [480, 420, 360],
@@ -5397,12 +5397,12 @@ angular
           "Ink Armor Object Shredder Multiplier": [3.0, 3.0, 1.0],
           "Inkjet Explosion Paint Splash Velocity H": [3.5, 3.4, 3.3]
       },
-  
+
       "Ink Recovery Up": {
           "Standing": [220.0, 410.0, 600.0],
           "In Ink": [117.0, 148.5, 180.0]
       },
-  
+
       "Cold Blooded": {
           "Thermal Ink Time Reduction": [1.0, 1.0, 1.0],
           "Silhouette Close": [250.0, 190.0, 130.0],
@@ -5410,7 +5410,7 @@ angular
           "Point Sensor": [0.1, 0.43, 1.0],
           "Ink Mine": [0.1, 0.55, 1.0]
       },
-  
+
       "Ink Resistance": {
           "Dmg Per Frame": [0.0015, 0.00225, 0.003],
           "Run": [0.768, 0.5568, 0.24],
@@ -5426,7 +5426,7 @@ angular
           "Jump": [96.6, 132.3, 138.0],
           "Prepare": [20.0, 35.0, 80.0]
       },
-  
+
       "Run Speed": {
         "Light": [1.44, 1.24, 1.04],
         "Heavy": [1.44, 1.16, 0.88],
@@ -5525,7 +5525,7 @@ angular
               1.2,
               1.1,
               1.0
-            ]            
+            ]
           }
         },
         "Blaster": {
@@ -5625,15 +5625,15 @@ angular
               325.5,
               318.0,
               310.5
-            ]            
+            ]
           },
           "MaxDistance": {
-            "desc": "Partial Charge Distance",     
+            "desc": "Partial Charge Distance",
             "params": [
               305.5,
               298.0,
               290.5
-            ]       
+            ]
           },
           "SplashPaintRadiusRate": {
             "desc": "Increased Ink Coverage",
@@ -5651,15 +5651,15 @@ angular
               305.5,
               298.0,
               290.5
-            ]            
+            ]
           },
           "MaxDistance": {
-            "desc": "Partial Charge Distance",     
+            "desc": "Partial Charge Distance",
             "params": [
               305.5,
               298.0,
               290.5
-            ]       
+            ]
           },
           "SplashPaintRadiusRate": {
             "desc": "Increased Ink Coverage",
@@ -5733,7 +5733,7 @@ angular
               1.15,
               1.075,
               1.0
-            ]            
+            ]
           }
         },
         "H-3 Nozzlenose": {
@@ -5790,7 +5790,7 @@ angular
               1.32,
               1.0
             ]
-          }          
+          }
         },
         "Jet Squelcher": {
           "DegRandom": {
@@ -5917,7 +5917,7 @@ angular
             "desc": "Increased Explosion Radius",
             "params": [
               1.093939,
-              1.036364, 
+              1.036364,
               1.0
             ],
             "CollisionRadiusMiddle": 33,
@@ -5937,7 +5937,7 @@ angular
             "desc": "Increased Explosion Radius",
             "params": [
               1.093939,
-              1.036364, 
+              1.036364,
               1.0
             ],
             "CollisionRadiusMiddle": 33,
@@ -5999,7 +5999,7 @@ angular
               1.2,
               1.1,
               1.0
-            ]            
+            ]
           }
         },
         "Splat Dualies": {
@@ -6047,7 +6047,7 @@ angular
               1.2,
               1.1,
               1.0
-            ]            
+            ]
           }
         },
         "Splattershot Jr.": {
@@ -6120,15 +6120,15 @@ angular
               182.65,
               175.15,
               167.65
-            ]            
+            ]
           },
           "MaxDistance": {
-            "desc": "Partial Charge Distance",     
+            "desc": "Partial Charge Distance",
             "params": [
               182.65,
               175.15,
               167.65
-            ]       
+            ]
           },
           "SplashPaintRadiusRate": {
             "desc": "Increased Ink Coverage",
@@ -6137,7 +6137,7 @@ angular
               1.12,
               1.0
             ]
-          }        
+          }
         },
         "Tenta Brella": {
           "CanopyHP": {

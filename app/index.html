@@ -49,7 +49,7 @@
 
   <!-- AngularJS Slider Resources -->
   <link rel="stylesheet" href="../common/style/rzslider.css"></link>
-  <script src="../common/lib/rzslider.js"></script>  
+  <script src="../common/lib/rzslider.js"></script>
 
   <script src="./tutorials.js"></script>
 
@@ -101,7 +101,7 @@
                       <div class="row" ng-hide="screenshotMode">
                         <div class="col-xs-12">
                           <span id="version">
-                            {{UI_VERSION_PREFIX | translate}}2.3.0
+                            {{UI_VERSION_PREFIX | translate}}2.3.1
                             <span class="icon-button fa fa-question-circle-o" ng-controller="ModalCtrl" uib-tooltip="{{ UI_CHANGELOG | translate }}" ng-click="openChangelog()" tooltip-append-to-body="true"></span>
                             <span id="tutorial" class="icon-button fa fa-magic" ng-controller="splatController" uib-tooltip="{{ UI_TUTORIAL | translate }}" ng-click="tutorial()" tooltip-append-to-body="true"></span>
                           </span>
@@ -320,7 +320,7 @@
                           </tr>
                           <tbody>
                             <tr ng-repeat="special in getDamagingSpecials()">
-                              <td>{{special.localizedName['{{ LANG_SELECTOR | translate }}'] || special.localizedName['{{ LANG_FULL | translate }}']}}</td>                              
+                              <td>{{special.localizedName['{{ LANG_SELECTOR | translate }}'] || special.localizedName['{{ LANG_FULL | translate }}']}}</td>
                               <td>{{getAdjustedSpecialDamage(special,loadout)["Direct"]}}</td>
                               <td>{{getAdjustedSpecialDamage(special,loadout)["Near"]}}</td>
                               <td>{{getAdjustedSpecialDamage(special,loadout)["Far"]}}</td>
@@ -341,7 +341,7 @@
                           </tr>
                           <tbody>
                             <tr ng-repeat="effect in getInkResistanceEffects()">
-                              <td>{{effect.name}}</td>                              
+                              <td>{{effect.name}}</td>
                               <td>{{getAdjustedInkResistanceEffect(effect.key,loadout)}}</td>
                             </tr>
                           </tbody>
@@ -366,4 +366,3 @@
   </div>
 </body>
 </html>
-

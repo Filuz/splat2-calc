@@ -245,7 +245,7 @@ angular.module('splatApp').subs = function ($scope) {
       cost: 70,
       inkSaver: "C",
       damage: {
-        "Near": 180,
+        "Near": 220,
         "Far": 30
       }
     },
