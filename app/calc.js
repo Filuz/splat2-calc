@@ -14,7 +14,7 @@ angular
     $scope.loadout = new Loadout();
     $scope.status = {}
     $scope.logging = false;
-    $scope.appVersion = 231; // 2.X.X
+    $scope.appVersion = 232; // 2.X.X
     $scope.screenshotMode = false;
     $scope.toggledAbilities = {};
 

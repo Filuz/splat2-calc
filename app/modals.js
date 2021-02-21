@@ -185,9 +185,15 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
       <li>Trello Board: <a href="https://trello.com/b/CjN9IRzJ/loadoutink" target="_blank">https://trello.com/b/CjN9IRzJ/loadoutink</a>.
     </ul>
 
-    <h4>Version 2.3.1 (Current)</h4>
+    <h4>Version 2.3.2 (Current)</h4>
+    <ul>
+    <li>Updated several weapons for patch up to <a href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/27028/~/how-to-update-splatoon-2" target="_blank">v5.4.0</a>.</li>
+    </ul>
+
+    <h4>Version 2.3.1</h4>
     <ul>
     <li>Updated several weapons for patch up to <a href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/27028/~/how-to-update-splatoon-2" target="_blank">v5.3.1</a>.</li>
+    <li>Added missing Chaos VS Order gear.</li>
     </ul>
 
     <h4>Version 2.3.0</h4>
